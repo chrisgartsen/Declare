@@ -1,9 +1,11 @@
 # Rails 5.0 Starter template
 
-Inludes:
+### Includes
 * Support for PostgreSQL 
-* Removed coffee script support (because of problems with x64 environments)
-* BCrypt support
+* Removed coffee script support (problems with x64 environments)
+* BCrypt
+* Bootstrap (3.3)
+* Do not autogenerate scaffold helper files
 
 ## Config variables
 

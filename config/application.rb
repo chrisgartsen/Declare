@@ -9,11 +9,17 @@ Bundler.require(*Rails.groups)
 module RailsStarterApp
   class Application < Rails::Application
 
+    config.generators do |g|
+      g.stylesheets false
+      g.javascripts false
+      g.helper false
+    end
+
     # read a config file at location /config/local_env.yml
     # this contains env variables
     # DATABASE_USERNAME
     # DATABASE_USERPASSWORD
-    #
+    # DATABASE_NAME
 
     config.before_configuration do
       env_file = File.join(Rails.root, 'config', 'local_env.yml')
