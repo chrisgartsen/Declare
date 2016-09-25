@@ -8,9 +8,9 @@ Inludes:
 
 Provide the following environment variables for the database-YML config
 
-*DATABASE_USERNAME
-*DATABASE_PASSWORD
-*DATABASE_NAME
+* DATABASE_USERNAME
+* DATABASE_PASSWORD
+* DATABASE_NAME
 
 Used in config.yml
 
