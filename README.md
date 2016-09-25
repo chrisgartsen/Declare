@@ -3,7 +3,7 @@
 Inludes:
 * Support for PostgreSQL 
 * Removed coffee script support (because of problems with x64 environments)
-* Add BCrypt support
+* BCrypt support
 
 ## Config variables
 
