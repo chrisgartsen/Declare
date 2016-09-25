@@ -1,6 +1,6 @@
 # Rails 5.0 Starter template
 
-### Includes
+## Includes
 * Support for PostgreSQL 
 * Removed coffee script support (problems with x64 environments)
 * BCrypt
@@ -12,9 +12,22 @@
 
 Provide the following environment variables for the database-YML config
 
+* APPLICATION_NAME
 * DATABASE_USERNAME
 * DATABASE_PASSWORD
 * DATABASE_NAME
+
+Used in application.html.erb
+
+```
+<head>
+  ...
+  <title><% ENV['APPLICATION_NAME'] %></title>
+  ...
+</head>
+
+```
+
 
 Used in config.yml
 
