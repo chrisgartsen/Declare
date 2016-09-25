@@ -16,6 +16,15 @@ gem 'turbolinks', '~> 5'
 
 group :development, :test do
   gem 'byebug', platform: :mri
+  gem 'database_cleaner'
+  gem 'shoulda-matchers'
+  gem 'rspec-rails'
+  gem 'rails-controller-testing'
+  gem 'factory_girl_rails'
+  gem 'capybara'
+  gem 'poltergeist'
+  gem 'selenium-webdriver', '~> 2.53.0'
+  gem 'faker'
 end
 
 group :development do
