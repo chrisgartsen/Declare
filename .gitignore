@@ -21,3 +21,4 @@
 .byebug_history
 /tmp/.keep
 /log/.keep
+/config/local_env.yml
