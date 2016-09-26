@@ -22,7 +22,7 @@ Used in application.html.erb
 ```
 <head>
   ...
-  <title><% ENV['APPLICATION_NAME'] %></title>
+  <title><%= ENV['APPLICATION_NAME'] %></title>
   ...
 </head>
 
