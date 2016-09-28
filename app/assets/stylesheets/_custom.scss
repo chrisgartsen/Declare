@@ -1,14 +1,8 @@
-$footer-background-color: #333;
-
-
 main {
-
   min-height: 1200px;
-
 }
 
 footer {
-
   background-color: $footer-background-color;
   min-height: 200px;
   text-align: center;
@@ -19,7 +13,7 @@ footer {
     color: white;
 
     &:hover {
-      color: white;
+      color: $footer-font-color;
       text-decoration: underline;
     }
   }
@@ -29,7 +23,7 @@ footer {
 
     li {
       display: inline;
-      color: white;
+      color: $footer-font-color;
 
       &:not(:last-child):after {
         content: '|';
