@@ -1,0 +1,40 @@
+$footer-background-color: #333;
+
+
+main {
+
+  min-height: 1200px;
+
+}
+
+footer {
+
+  background-color: $footer-background-color;
+  min-height: 200px;
+  text-align: center;
+  padding-top: 25px;
+  padding-bottom: 25px;
+
+  a {
+    color: white;
+
+    &:hover {
+      color: white;
+      text-decoration: underline;
+    }
+  }
+
+  ul {
+    list-style-type: none;
+
+    li {
+      display: inline;
+      color: white;
+
+      &:not(:last-child):after {
+        content: '|';
+        margin-left: 10px;
+      }
+    }
+  }
+}
