@@ -10,7 +10,6 @@ RSpec.describe 'layouts/_main' do
 
     it 'has a main element' do
       expect(rendered).to have_selector('main')
-
     end
 
     it 'wrapped in a fluid container' do
