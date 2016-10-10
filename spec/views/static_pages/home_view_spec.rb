@@ -7,7 +7,11 @@ RSpec.describe 'static_pages/home', type: :view do
   end
 
   it 'has a page title' do
-    expect(rendered).to have_selector('.pageheader', text: 'Welcome')
+    expect(rendered).to have_selector('.pageheader', text: 'Manage your expenses')
+  end
+
+  it 'has a signup link' do
+    expect(rendered).to have_link('Signup', href: '#')
   end
 
 end
