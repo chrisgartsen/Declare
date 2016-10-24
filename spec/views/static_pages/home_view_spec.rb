@@ -11,7 +11,7 @@ RSpec.describe 'static_pages/home', type: :view do
   end
 
   it 'has a signup link' do
-    expect(rendered).to have_link('Signup', href: '#')
+    expect(rendered).to have_link('Sign up', href: '#')
   end
 
 end
