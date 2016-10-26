@@ -28,13 +28,13 @@ RSpec.describe User, type: :model do
     expect(user.errors[:email]).to include("has already been taken")
   end
 
-  xit 'requires a password' do
+  it 'requires a password' do
     user = FactoryGirl.build(:user, :missing_password)
     user.valid?
     expect(user.errors[:password]).to include("can't be blank")
   end
 
-  xit 'requires a password confirmation to match password' do
+  it 'requires a password confirmation to match password' do
     user = FactoryGirl.build(:user, :password_mismatch)
     user.valid?
     expect(user.errors[:password_confirmation]).to include("doesn't match Password")
@@ -65,13 +65,13 @@ RSpec.describe User, type: :model do
     expect(user.password_hash).to eq(BCrypt::Engine.hash_secret('Secret', user.password_salt))
   end
 
-  xit 'activates the user' do
+  it 'activates the user' do
     user = FactoryGirl.create(:user, :inactive)
     user.activate
     expect(user.active).to be_truthy
   end
 
-  xit 'inactivates the user' do
+  it 'inactivates the user' do
     user = FactoryGirl.create(:user, :active)
     user.inactivate
     expect(user.active).to be_falsey
