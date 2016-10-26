@@ -60,7 +60,7 @@ RSpec.describe User, type: :model do
     expect(user.password_hash).not_to be_nil
   end
 
-  xit 'has a hashed password' do
+  it 'has a hashed password' do
     user = FactoryGirl.create(:user)
     expect(user.password_hash).to eq(BCrypt::Engine.hash_secret('Secret', user.password_salt))
   end
@@ -77,17 +77,17 @@ RSpec.describe User, type: :model do
     expect(user.active).to be_falsey
   end
 
-  xit 'authenticates with the correct password' do
+  it 'authenticates with the correct password' do
     user = FactoryGirl.create(:user)
     expect(user.authenticate(user.password)).to be_truthy
   end
 
-  xit 'does not authenticate with the wrong password' do
+  it 'does not authenticate with the wrong password' do
     user = FactoryGirl.create(:user)
     expect(user.authenticate('WRONG')).to be_falsey
   end
 
-  xit 'does not authenticate without a password' do
+  it 'does not authenticate without a password' do
     user = FactoryGirl.create(:user)
     expect(user.authenticate(nil)).to be_falsey
   end
