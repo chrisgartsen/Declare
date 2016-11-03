@@ -8,6 +8,18 @@
 
       <%= form_for @user, html: { class: 'form-horizontal' } do |f| %>
 
+        <% if @user.errors.any? %>
+          <div class='alert alert-danger'>
+            <strong>A problem has occurred while signing up.</strong>
+            <p><%= pluralize(@user.errors.count, 'error') %> occurred</p>
+            <ul>
+              <% @user.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+
         <div class='form-group'>
           <%= f.label(:name, class: 'control-label col-sm-4') %>
           <div class='col-sm-6'>
