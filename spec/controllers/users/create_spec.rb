@@ -34,11 +34,26 @@ RSpec.describe UsersController, type: :controller do
 
     context 'with invalid input' do
 
-      it 're-renders the sign up form'
+      it 're-renders the sign up form' do
+        post :create, params: {user: FactoryGirl.attributes_for(:user, :missing_name)}
+        expect(response).to render_template(:new)
+      end
 
-      it 'does not store the user in the database'
+      it 'does not store the user in the database' do
+        expect {
+           post :create, params: {user: FactoryGirl.attributes_for(:user, :missing_name)}
+          }.not_to change(User, :count)
+      end
 
-      it 'does not log in the user'
+      it 'returns the invalid user object with errors' do
+        post :create, params: {user: FactoryGirl.attributes_for(:user, :missing_name)}
+        expect(assigns(:user).errors).not_to be_nil
+      end
+
+      it 'does not log in the user' do
+        post :create, params: {user: FactoryGirl.attributes_for(:user, :missing_name)}
+        expect(session[:user_id]).to be_nil
+      end
 
     end
 
