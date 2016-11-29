@@ -1,0 +1,58 @@
+<div class='container'>
+
+  <div class='row'>
+    <div class='col-md-6 col-md-offset-2'>
+
+      <h1 class='pageheader'>Sign up</h1>
+
+
+      <%= form_for @user, html: { class: 'form-horizontal' } do |f| %>
+
+        <% if @user.errors.any? %>
+          <div class='alert alert-danger'>
+            <strong>A problem has occurred while signing up.</strong>
+            <p><%= pluralize(@user.errors.count, 'error') %> occurred</p>
+            <ul>
+              <% @user.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+
+        <div class='form-group'>
+          <%= f.label(:name, class: 'control-label col-sm-4') %>
+          <div class='col-sm-6'>
+            <%= f.text_field(:name, class: 'form-control') %>
+          </div>
+        </div>
+        <div class='form-group'>
+          <%= f.label(:email, class: 'control-label col-sm-4') %>
+          <div class='col-sm-6'>
+            <%= f.text_field(:email, class: 'form-control') %>
+          </div>
+        </div>
+        <div class='form-group'>
+          <%= f.label(:password, class: 'control-label col-sm-4') %>
+          <div class='col-sm-6'>
+            <%= f.password_field(:password, class: 'form-control') %>
+          </div>
+        </div>
+        <div class='form-group'>
+          <%= f.label(:password_confirmation, class: 'control-label col-sm-4') %>
+          <div class='col-sm-6'>
+            <%= f.password_field(:password_confirmation, class: 'form-control') %>
+          </div>
+        </div>
+        <div class='form-group'>
+          <div class="col-sm-offset-4 col-sm-9">
+            <%= f.submit('Sign up', class:'btn btn-primary') %>
+          </div>
+        </div>
+
+      <% end %>
+
+    </div>
+  </div>
+
+</div>

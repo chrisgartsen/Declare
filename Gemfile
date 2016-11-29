@@ -1,4 +1,4 @@
-source 'https://rubygems.org'
+source 'http://rubygems.org'
 
 gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
 
@@ -29,6 +29,8 @@ end
 
 group :development do
   gem 'web-console'
+  gem 'better_errors'
+  gem 'bullet'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
