@@ -2,24 +2,42 @@ require 'rails_helper'
 
 RSpec.describe 'layouts/_header', type: :view do
 
-  before(:each) do
-    render
+  context 'markup' do
+
+    before(:each) do
+      render
+    end
+
+    it 'has a header element' do
+      expect(rendered).to have_selector('header')
+    end
+
+    it 'has a navbar' do
+      expect(rendered).to have_selector('.navbar')
+    end
+
+    it 'has a navbar header' do
+      expect(rendered).to have_selector('.navbar-header')
+    end
+
+    it 'has a list of links' do
+      expect(rendered).to have_selector('ul.navbar-nav')
+    end
+
   end
 
-  it 'has a header element' do
-    expect(rendered).to have_selector('header')
-  end
+  context 'when logged in' do
 
-  it 'has a navbar' do
-    expect(rendered).to have_selector('.navbar')
-  end
+    before(:each) do
+      @user = FactoryGirl.create(:user)
+      session[:user_id] = @user.id
+      render
+    end
 
-  it 'has a navbar header' do
-    expect(rendered).to have_selector('.navbar-header')
-  end
+    it 'shows the username' do
+      expect(rendered).to have_selector('p.navbar-text', text: @user.name)
+    end
 
-  it 'has a list of links' do
-    expect(rendered).to have_selector('ul.navbar-nav')
   end
 
 end
