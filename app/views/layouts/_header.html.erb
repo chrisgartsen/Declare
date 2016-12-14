@@ -11,6 +11,8 @@
     </div>
     <ul class='nav navbar-nav navbar-right collapse navbar-collapse'>
       <p class="navbar-text"><%= user_name %></p>
+      <% unless logged_in? %><li><%= link_to 'Log in', login_path %></li><% end %>
     </ul>
+
   </div>
 </header>
