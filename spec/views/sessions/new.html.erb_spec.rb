@@ -9,6 +9,11 @@ RSpec.describe "sessions/new.html.erb", type: :view do
       expect(rendered).to have_selector('.pageheader', text: 'Log in')
     end
 
+    it 'has a signup link' do
+      render
+      expect(rendered).to have_selector('a', text: 'Sign up')
+    end
+
   end
 
   describe '#form' do

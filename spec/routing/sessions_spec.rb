@@ -12,4 +12,7 @@ RSpec.describe 'SessionsRouting', type: :routing do
     expect(get: logout_path).to route_to('sessions#destroy')
   end
 
+  it 'routes to '
+
+
 end

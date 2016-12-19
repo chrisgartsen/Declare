@@ -17,7 +17,7 @@ RSpec.feature 'Login user', type: :feature, js: true do
       within('form') do
         fill_in 'email', with: user.email
         fill_in 'password', with: user.password
-        click_button 'Log in'
+        click_button 'login-button'
       end
 
       expect(page.find('.navbar-text')).to have_content(user.name)
