@@ -26,6 +26,24 @@ RSpec.describe 'layouts/_header', type: :view do
 
   end
 
+  context 'when not logged in' do
+
+    before(:each) do
+      session[:user_id] = nil
+      render
+    end
+
+    it 'has a login button' do
+      expect(rendered).to have_selector('a', text: "Log in")
+    end
+
+    it 'does not have a logout button' do
+      expect(rendered).not_to have_selector('a', text: "Log out")
+    end
+
+
+  end
+
   context 'when logged in' do
 
     before(:each) do
@@ -36,6 +54,14 @@ RSpec.describe 'layouts/_header', type: :view do
 
     it 'shows the username' do
       expect(rendered).to have_selector('p.navbar-text', text: @user.name)
+    end
+
+    it 'has a logout button' do
+      expect(rendered).to have_selector('a', text: "Log out")
+    end
+
+    it 'does not have a login button' do
+      expect(rendered).not_to have_selector('a', text: "Log in")
     end
 
   end

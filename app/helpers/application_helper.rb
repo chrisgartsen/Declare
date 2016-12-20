@@ -4,6 +4,9 @@ module ApplicationHelper
     ENV['APPLICATION_NAME']
   end
 
+  def logged_in?
+    session[:user_id] != nil
+  end
 
   def user_name
     user ? user.name : nil

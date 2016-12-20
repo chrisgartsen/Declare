@@ -10,6 +10,22 @@ RSpec.describe ApplicationHelper, type: :helper do
 
   end
 
+
+  describe '#logged_in?' do
+
+    it 'returns true when logged in' do
+      user = FactoryGirl.create(:user)
+      session[:user_id] = user.id
+      expect(helper.logged_in?).to be_truthy
+    end
+
+    it 'returns false when not logged in' do
+      session[:user_id] = nil
+      expect(helper.logged_in?).to be_falsey
+    end
+
+  end
+
   describe "#user_name" do
 
     it 'returns the username when logged in' do
