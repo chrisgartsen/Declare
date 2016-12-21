@@ -52,8 +52,8 @@ RSpec.describe 'layouts/_header', type: :view do
       render
     end
 
-    it 'shows the username' do
-      expect(rendered).to have_selector('p.navbar-text', text: @user.name)
+    it 'has a link to the user account' do
+      expect(rendered).to have_link(@user.name, href: '#')
     end
 
     it 'has a logout button' do
