@@ -4,7 +4,7 @@ RSpec.feature 'Manage account', type: :feature, js: true do
 
   context 'as a user' do
 
-    xit 'shows the user info' do
+  it 'shows the user info' do
       user = FactoryGirl.create(:user)
 
       visit root_path
@@ -18,7 +18,7 @@ RSpec.feature 'Manage account', type: :feature, js: true do
 
       click_link user.name
 
-      expect(page.find('.pageheader')).to have_content('Manage your account')
+      expect(page.find('.pageheader')).to have_content('Manage account')
       expect(page).to have_content(user.email)
 
     end
