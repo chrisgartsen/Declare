@@ -1,5 +1,9 @@
 class UsersController < ApplicationController
 
+  include ApplicationHelper
+
+  before_action :check_current_user, only: [:edit]
+
   def new
     @user = User.new
   end
@@ -14,7 +18,15 @@ class UsersController < ApplicationController
     end
   end
 
+  def edit
+    @user = current_user
+  end
+
   private
+
+    def check_current_user
+      redirect_to login_path unless current_user
+    end
 
     def user_params
       params.require(:user).permit(:name, :email, :password, :password_confirmation)

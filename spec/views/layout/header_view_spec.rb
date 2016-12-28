@@ -53,7 +53,7 @@ RSpec.describe 'layouts/_header', type: :view do
     end
 
     it 'has a link to the user account' do
-      expect(rendered).to have_link(@user.name, href: '#')
+      expect(rendered).to have_link(@user.name, href: edit_user_path(@user))
     end
 
     it 'has a logout button' do
