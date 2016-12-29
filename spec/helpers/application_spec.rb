@@ -10,6 +10,21 @@ RSpec.describe ApplicationHelper, type: :helper do
 
   end
 
+  describe '#current_user' do
+
+    it 'returns the user when logged in' do
+      user = FactoryGirl.create(:user)
+      session[:user_id] = user.id
+      expect(helper.current_user).to eq user
+    end
+
+    it 'returns nil when nog logged in' do
+      session[:user_id] = nil
+      expect(helper.current_user).to be_nil
+    end
+
+  end
+
 
   describe '#logged_in?' do
 

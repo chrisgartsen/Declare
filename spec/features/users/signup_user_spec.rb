@@ -21,7 +21,7 @@ RSpec.feature 'Signup user', type: :feature, js: true do
         click_button 'Sign up'
       end
 
-      expect(page.find('.navbar-text')).to have_content(user.name)
+      expect(page.find('.navbar-right')).to have_content(user.name)
 
     end
 

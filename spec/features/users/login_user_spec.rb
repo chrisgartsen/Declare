@@ -1,11 +1,11 @@
 require 'rails_helper'
 
-RSpec.feature 'Login user', type: :feature, js: true do
+RSpec.feature 'Login and logout user', type: :feature, js: true do
 
 
   context'as a registered user' do
 
-    it 'logs in the user' do
+    it 'logs in the user and logs out again' do
 
       visit root_path
       click_link 'Log in'
@@ -20,7 +20,12 @@ RSpec.feature 'Login user', type: :feature, js: true do
         click_button 'login-button'
       end
 
-      expect(page.find('.navbar-text')).to have_content(user.name)
+      expect(page.find('.navbar-right')).to have_content(user.name)
+
+      click_link 'Log out'
+
+      expect(page.find('.navbar-right')).not_to have_content(user.name)
+      expect(page.find('.pageheader')).to have_content('Log in')
 
     end
 

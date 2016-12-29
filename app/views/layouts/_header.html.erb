@@ -10,8 +10,9 @@
       </button>
     </div>
     <ul class='nav navbar-nav navbar-right collapse navbar-collapse'>
-      <p class="navbar-text"><%= user_name %></p>
+
       <% if logged_in? %>
+        <li><%= link_to user_name, edit_user_path(current_user) %></li>
         <li><%= link_to 'Log out', logout_path %></li>
       <% else %>
         <li><%= link_to 'Log in', login_path %></li>

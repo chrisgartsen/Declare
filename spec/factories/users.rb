@@ -30,4 +30,9 @@ FactoryGirl.define do
     active false
   end
 
+  trait :additional_user do
+    name 'Second User'
+    email 'second@user.nl'
+  end
+
 end
