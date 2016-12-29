@@ -1,6 +1,7 @@
 language: ruby
 rvm:
 - 2.2.5
+gemfile: gemfiles/Gemfile
 addons:
   firefox: "46.0"
 script:
