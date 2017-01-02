@@ -4,7 +4,7 @@ RSpec.feature 'Manage account', type: :feature, js: true do
 
   context 'as a user' do
 
-  it 'shows the user info' do
+  xit 'shows the user info' do
       user = FactoryGirl.create(:user)
 
       visit root_path
