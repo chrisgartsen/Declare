@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'accounts/show'
+
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
 
