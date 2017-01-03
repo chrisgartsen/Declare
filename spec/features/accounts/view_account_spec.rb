@@ -18,7 +18,7 @@ RSpec.feature 'Manage account', type: :feature, js: true do
 
       click_link user.name
 
-      expect(page.find('.pageheader')).to have_content('Manage account')
+      expect(page.find('.pageheader')).to have_content('Account information')
       expect(page).to have_content(user.email)
 
     end
