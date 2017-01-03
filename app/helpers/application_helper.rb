@@ -16,6 +16,10 @@ module ApplicationHelper
     user ? user.name : nil
   end
 
+  def is_admin?
+    user ? user.admin : false
+  end
+
   private
 
     def user
