@@ -44,7 +44,7 @@ RSpec.describe 'layouts/_header', type: :view do
 
   end
 
-  context 'when logged in' do
+  context 'when logged in as user' do
 
     before(:each) do
       @user = FactoryGirl.create(:user)
@@ -62,6 +62,24 @@ RSpec.describe 'layouts/_header', type: :view do
 
     it 'does not have a login button' do
       expect(rendered).not_to have_selector('a', text: "Log in")
+    end
+
+    it 'does not have a view all users link' do
+      expect(rendered).not_to have_link('Users', href: users_path)
+    end
+
+  end
+
+  context 'when logged in as admin' do
+
+    before(:each) do
+      @admin = FactoryGirl.create(:user, :admin)
+      session[:user_id] = @admin.id
+      render
+    end
+
+    it 'has a view all users link' do
+      expect(rendered).to have_link('Users', href: users_path)
     end
 
   end
