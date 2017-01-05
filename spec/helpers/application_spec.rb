@@ -25,6 +25,27 @@ RSpec.describe ApplicationHelper, type: :helper do
 
   end
 
+  describe '#is_admin?' do
+
+    it 'returns true when the user is admin' do
+      admin = FactoryGirl.create(:user, :admin)
+      session[:user_id] = admin.id
+      expect(helper.is_admin?).to be_truthy
+    end
+
+    it 'returns false when the user is not an admin' do
+      user = FactoryGirl.create(:user)
+      session[:user_id] = user.id
+      expect(helper.is_admin?).to be_falsey
+    end
+
+    it 'returns false when the user is not logged in' do
+      session[:user_id] = nil
+      expect(helper.is_admin?).to be_falsey
+    end
+
+  end
+
 
   describe '#logged_in?' do
 

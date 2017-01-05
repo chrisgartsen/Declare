@@ -2,7 +2,7 @@ class UsersController < ApplicationController
 
   include ApplicationHelper
 
-  before_action :check_current_user, only: [:edit]
+  before_action :check_admin, only: [:index]
 
   def new
     @user = User.new
@@ -18,10 +18,14 @@ class UsersController < ApplicationController
     end
   end
 
+  def index
+    @users = User.all
+  end
+
   private
 
-    def check_current_user
-      redirect_to login_path unless current_user
+    def check_admin
+      redirect_to login_path unless is_admin?
     end
 
     def user_params
