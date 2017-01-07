@@ -46,6 +46,13 @@ RSpec.describe ApplicationHelper, type: :helper do
 
   end
 
+  describe '#application_version' do
+
+    it 'returns the application version' do
+      expect(helper.application_version).to eq('0.1.0')
+    end
+
+  end
 
   describe '#logged_in?' do
 

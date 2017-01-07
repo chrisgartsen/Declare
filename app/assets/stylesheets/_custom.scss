@@ -8,9 +8,10 @@ footer {
   text-align: center;
   padding-top: 25px;
   padding-bottom: 25px;
+  color: $footer-font-color;
 
   a {
-    color: white;
+    color: $footer-font-color;
 
     &:hover {
       color: $footer-font-color;
@@ -23,7 +24,6 @@ footer {
 
     li {
       display: inline;
-      color: $footer-font-color;
 
       &:not(:last-child):after {
         content: '|';
@@ -31,6 +31,11 @@ footer {
       }
     }
   }
+
+  .subtext {
+    font-size: 0.8em;
+  }
+
 }
 
 img {

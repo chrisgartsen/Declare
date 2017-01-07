@@ -4,6 +4,10 @@ module ApplicationHelper
     ENV['APPLICATION_NAME']
   end
 
+  def application_version
+    ENV['APPLICATION_VERSION']
+  end
+
   def current_user
     user
   end
