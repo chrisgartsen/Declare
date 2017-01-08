@@ -1,5 +1,17 @@
 Rails.application.routes.draw do
 
+  get 'accounts/show'
+
+  resources :users
+  resources :sessions, only: [:new, :create, :destroy]
+
+  get 'users/new'
+
+  # User related
+  get '/signup', to: 'users#new', as: 'signup'
+  get '/login', to: 'sessions#new', as: 'login'
+  get '/logout', to: 'sessions#destroy', as: 'logout'
+
   # Static Pages
   get '/static_pages/:page', to: 'static_pages#show'
   get '/home',    to: 'static_pages#show', page: 'home'

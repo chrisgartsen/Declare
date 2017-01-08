@@ -1,0 +1,13 @@
+language: ruby
+rvm:
+- 2.2.5
+gemfile: gemfiles/Gemfile
+addons:
+  firefox: "46.0"
+script:
+- bundle exec rake db:test:prepare
+- bundle exec rspec
+before_script:
+- cp config/database.travis.yml config/database.yml
+- cp config/travis_env.yml config/local_env.yml
+- psql -c 'create database travis_ci_test;' -U postgres
