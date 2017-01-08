@@ -1,6 +1,6 @@
 class AccountsController < ApplicationController
 
-  include ApplicationHelper
+  include AuthenticationHelper
 
   before_action :check_current_user
 
