@@ -24,6 +24,11 @@ RSpec.configure do |config|
   config.filter_rails_from_backtrace!
 
   config.include ApplicationHelper
+  config.include AuthenticationHelper
+
+  config.before(:each, type: :view) do
+    view.extend AuthenticationHelper
+  end
 
   config.before(:suite) do
     DatabaseCleaner.clean_with(:truncation)
