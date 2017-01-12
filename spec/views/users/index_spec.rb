@@ -4,6 +4,9 @@ RSpec.describe 'users/index', type: :view do
 
   describe '#markup' do
 
+    let(:breadcrumb) {view.content_for(:breadcrumb) }
+
+
     before(:each) do
       assign(:users, [])
       render
@@ -11,6 +14,10 @@ RSpec.describe 'users/index', type: :view do
 
     it 'has a page header' do
       expect(rendered).to have_selector('.pageheader', text: 'Users')
+    end
+
+    it 'has a static reference to the index page' do
+      expect(breadcrumb).to have_selector('.breadcrumb li.active', text: 'Users')
     end
 
   end

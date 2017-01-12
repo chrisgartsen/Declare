@@ -2,6 +2,18 @@ require 'rails_helper'
 
 RSpec.describe 'users/new', type: :view do
 
+  describe '#breadcrumb' do
+
+    let(:breadcrumb) {view.content_for(:breadcrumb) }
+
+    it 'has a static reference to the signup page' do
+      assign(:user, User.new)
+      render
+      expect(breadcrumb).to have_selector('.breadcrumb li.active', text: 'Sign up')
+    end
+
+  end
+
   describe '#markup' do
 
     before(:each) do
