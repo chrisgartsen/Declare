@@ -8,6 +8,12 @@ RSpec.describe "accounts/show", type: :view do
     render
   end
 
+  let(:breadcrumb) {view.content_for(:breadcrumb) }
+
+  it 'has a static reference to the account page' do
+    expect(breadcrumb).to have_selector('.breadcrumb li.active', text: 'Account')
+  end
+
   it 'has a pageheader' do
     expect(rendered).to have_selector('.pageheader', text: 'Account information')
   end

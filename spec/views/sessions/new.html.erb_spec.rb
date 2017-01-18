@@ -2,6 +2,17 @@ require 'rails_helper'
 
 RSpec.describe "sessions/new.html.erb", type: :view do
 
+  describe '#breadcrumb' do
+
+    let(:breadcrumb) {view.content_for(:breadcrumb) }
+
+    it 'has a static reference to the login page' do
+      render
+      expect(breadcrumb).to have_selector('.breadcrumb li.active', text: 'Log in')
+    end
+
+  end
+
   describe '#content' do
 
     it 'has a pageheader' do

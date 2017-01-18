@@ -25,9 +25,11 @@ RSpec.configure do |config|
 
   config.include ApplicationHelper
   config.include AuthenticationHelper
+  config.include BreadcrumbHelper
 
   config.before(:each, type: :view) do
     view.extend AuthenticationHelper
+    view.extend BreadcrumbHelper
   end
 
   config.before(:suite) do

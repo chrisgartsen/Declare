@@ -1,5 +1,5 @@
 main {
-  min-height: 1200px;
+  min-height: 1100px;
 }
 
 footer {
@@ -48,3 +48,14 @@ img {
   padding-bottom: 100px;
 }
 
+.navbar {
+  margin-bottom: 0px;
+}
+
+.main-page {
+  min-height: 100px;
+
+  .navbar-brand {
+    font-size: 28px;
+  }
+}
