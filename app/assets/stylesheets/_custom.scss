@@ -50,12 +50,13 @@ img {
 
 .navbar {
   margin-bottom: 0px;
+  vertical-align: bottom;
 }
 
 .main-page {
-  min-height: 100px;
-
+  min-height: 80px;
   .navbar-brand {
-    font-size: 28px;
+    padding-top: 30px;
+    font-size: 32px;
   }
 }
