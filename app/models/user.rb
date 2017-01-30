@@ -8,6 +8,8 @@ class User < ApplicationRecord
   validates :email, presence: true, uniqueness: true
   validates :password, presence: true, confirmation: true
 
+  has_many :projects
+
   def activate
     self.active = true
   end
@@ -27,6 +29,10 @@ class User < ApplicationRecord
 
   def hash_password(password)
     BCrypt::Engine.hash_secret(password, self.password_salt)
+  end
+
+  def number_of_projects
+    self.projects.count
   end
 
 end

@@ -27,7 +27,7 @@ RSpec.describe UsersController, type: :controller do
       end
 
       it 'returns the users' do
-        user = FactoryGirl.create(:user, :additional_user)
+        user = FactoryGirl.create(:additional_user)
         get :index
         expect(assigns(:users)).to match_array([@admin, user])
       end

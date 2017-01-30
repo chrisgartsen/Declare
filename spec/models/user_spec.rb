@@ -92,4 +92,15 @@ RSpec.describe User, type: :model do
     expect(user.authenticate(nil)).to be_falsey
   end
 
+  it 'returns the number of projects' do
+    user = FactoryGirl.create(:user)
+    second_user = FactoryGirl.create(:additional_user)
+    FactoryGirl.create(:first_project, user_id: user.id)
+    FactoryGirl.create(:second_project, user_id: user.id)
+    FactoryGirl.create(:third_project, user_id: second_user.id)
+    expect(user.number_of_projects).to eq(2)
+  end
+
+
+
 end
