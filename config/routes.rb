@@ -2,12 +2,13 @@ Rails.application.routes.draw do
 
   get 'accounts/show'
 
+
   resources :users
+  resources :projects
   resources :sessions, only: [:new, :create, :destroy]
 
-  get 'users/new'
-
   # User related
+  get 'users/new'
   get '/signup', to: 'users#new', as: 'signup'
   get '/login', to: 'sessions#new', as: 'login'
   get '/logout', to: 'sessions#destroy', as: 'logout'
