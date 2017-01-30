@@ -11,5 +11,17 @@ FactoryGirl.define do
       user_id nil
     end
 
+    factory :first_project do
+      name 'First Project'
+    end
+
+    factory :second_project do
+      name 'Second Project'
+    end
+
+    factory :third_project do
+      name 'Third Project'
+    end
+
   end
 end

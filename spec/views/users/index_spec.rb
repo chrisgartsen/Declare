@@ -55,7 +55,7 @@ RSpec.describe 'users/index', type: :view do
 
     before(:each) do
       @first_user = FactoryGirl.create(:user)
-      @second_user = FactoryGirl.create(:user, :additional_user)
+      @second_user = FactoryGirl.create(:additional_user)
       assign(:users, [@first_user, @second_user])
       render
     end
