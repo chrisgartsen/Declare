@@ -8,6 +8,10 @@ class ProjectsController < ApplicationController
     @project = current_user.projects.new
   end
 
+  def index
+    @projects = Project.all
+  end
+
   private
 
   def check_authorisation
