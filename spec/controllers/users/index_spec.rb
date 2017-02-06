@@ -21,7 +21,7 @@ RSpec.describe UsersController, type: :controller do
         session[:user_id] = @admin.id
       end
 
-      it 'renders the index templ ate' do
+      it 'renders the index template' do
         get :index
         expect(response).to render_template :index
       end
