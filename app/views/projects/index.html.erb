@@ -1,0 +1,18 @@
+<% content_for(:breadcrumb) do %>
+  <%= breadcrumb('Projects' =>'#') %>
+<% end %>
+
+<div class='container'>
+
+  <div class='row'>
+    <div class='col-md-10 col-md-offset-1'>
+
+      <h1 class='pageheader'>Projects</h1>
+
+      <%= link_to new_project_path, class: 'btn btn-primary' do %>
+        <i class="fa fa-plus fa-lg"></i> Add project
+      <% end %>
+
+    </div>
+  </div>
+</div>
