@@ -10,9 +10,9 @@ RSpec.feature 'Create new project', type: :feature, js: true do
     login(user)
 
     click_link 'Projects'
-    click_button 'Add new project'
+    click_link 'add-project'
 
-    expect(page.find('.pageheader')).to have_content('Create new project')
+    expect(page.find('.pageheader')).to have_content('Add project')
 
     fill_in_form(project)
 
