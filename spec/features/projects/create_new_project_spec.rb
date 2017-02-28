@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.feature 'Create new project', type: :feature, js: true do
 
-  it 'creates and shows a new project' do
+  xit 'creates and shows a new project' do
 
     user = FactoryGirl.create(:user)
     project = FactoryGirl.build(:project, user_id: user.id)
