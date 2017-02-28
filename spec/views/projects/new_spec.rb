@@ -23,4 +23,25 @@ RSpec.describe 'projects/new', type: :view do
 
   end
 
+  describe '#form' do
+
+    before(:each) do
+      assign(:project, Project.new)
+      render
+    end
+
+    it 'has a form' do
+      expect(rendered).to have_selector('form')
+    end
+
+    it 'has a submit button' do
+      expect(rendered).to have_selector("input[type='submit']")
+    end
+
+    it 'has a name field' do
+      expect(rendered).to have_selector("input[type='text']#project_name")
+    end
+
+  end
+
 end
