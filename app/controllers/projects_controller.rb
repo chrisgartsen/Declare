@@ -8,6 +8,10 @@ class ProjectsController < ApplicationController
     @project = current_user.projects.new
   end
 
+  def create
+
+  end
+
   def index
     @projects = Project.all
   end
