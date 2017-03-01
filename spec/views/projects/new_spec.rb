@@ -44,4 +44,37 @@ RSpec.describe 'projects/new', type: :view do
 
   end
 
+  describe '#form with errors' do
+
+    before(:each) do
+      project = FactoryGirl.build(:project, :missing_name)
+      project.valid?
+      assign(:project, project)
+      render
+    end
+
+    it 'has an error panel' do
+      expect(rendered).to have_selector('div.alert.alert-danger')
+    end
+
+    it 'shows an error header' do
+      expect(rendered).to have_selector('strong', text: 'A problem has occurred while submitting your data.')
+    end
+
+    it 'shows an error subheader' do
+      expect(rendered).to have_selector('p', text: '1 error prohibited this Project from being saved.')
+    end
+
+    it 'list the error' do
+      expect(rendered).to have_selector('li', text: "Name can't be blank")
+    end
+
+    it 'lists the correct number of errors' do
+      expect(rendered).to have_selector('li', count: 1)
+    end
+
+  end
+
+
+
 end
