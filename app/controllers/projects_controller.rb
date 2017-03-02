@@ -9,7 +9,12 @@ class ProjectsController < ApplicationController
   end
 
   def create
-
+    @project = current_user.projects.new(project_params)
+    if @project.save
+      redirect_to projects_path
+    else
+      render :new
+    end
   end
 
   def index
@@ -20,6 +25,10 @@ class ProjectsController < ApplicationController
 
   def check_authorisation
     redirect_to(login_path) unless logged_in?
+  end
+
+  def project_params
+    params.require(:project).permit(:name)
   end
 
 end
