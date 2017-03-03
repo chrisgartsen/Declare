@@ -4,6 +4,10 @@ class ProjectsController < ApplicationController
 
   include AuthenticationHelper
 
+  def show
+    @project = current_user.projects.find(params[:id])
+  end
+
   def new
     @project = current_user.projects.new
   end
