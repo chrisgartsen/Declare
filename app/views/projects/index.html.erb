@@ -9,6 +9,19 @@
 
       <h1 class='pageheader'>Projects</h1>
 
+      <table class='table table-hover'>
+        <thead>
+          <th>Name</th>
+          <th>Created at</th>
+          <th>Updated at</th>
+        </thead>
+
+        <tbody>
+          <%= render @projects %>
+        </tbody>
+
+      </table>
+
       <%= link_to new_project_path, id: 'add-project', class: 'btn btn-primary' do %>
         <i class="fa fa-plus fa-lg"></i> Add project
       <% end %>
