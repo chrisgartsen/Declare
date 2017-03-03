@@ -33,9 +33,10 @@ RSpec.describe ProjectsController, type: :controller do
           expect(project.user_id).to eq(user.id)
         end
 
-        it 'redirects to the index page' do
+        it 'redirects to the view page' do
           post :create, params: { project: FactoryGirl.attributes_for(:project) }
-          expect(response).to redirect_to projects_path
+          project = Project.last
+          expect(response).to redirect_to project_path(project)
         end
 
       end
