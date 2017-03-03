@@ -8,6 +8,8 @@ require 'rspec/rails'
 require 'capybara/rails'
 require 'capybara/poltergeist'
 
+require 'support/behave_as_table'
+
 # use headless driver poltergeist for Travis CI environment
 
 if ENV['TRAVIS']
