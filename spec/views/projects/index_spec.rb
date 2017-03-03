@@ -73,6 +73,21 @@ RSpec.describe 'projects/index', type: :view do
       expect(rendered).to have_selector('tbody tr:last-child td#project-updated-at', text: @second_project.updated_at)
     end
 
+    it 'has a show button' do
+      expect(rendered).to have_selector('tbody tr:first-child a#show-project')
+      expect(rendered).to have_selector('tbody tr:last-child a#show-project')
+    end
+
+    it 'has a edit button' do
+      expect(rendered).to have_selector('tbody tr:first-child a#edit-project')
+      expect(rendered).to have_selector('tbody tr:last-child a#edit-project')
+    end
+
+    it 'has a delete button' do
+      expect(rendered).to have_selector('tbody tr:first-child a#delete-project')
+      expect(rendered).to have_selector('tbody tr:last-child a#delete-project')
+    end
+
   end
 
 end
