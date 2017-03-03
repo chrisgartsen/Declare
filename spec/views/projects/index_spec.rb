@@ -28,6 +28,13 @@ RSpec.describe 'projects/index', type: :view do
 
   describe '#table' do
 
+    before(:each) do
+      assign(:projects, [])
+      render
+    end
+
+    it_behaves_like 'a table'
+
 
   end
 
