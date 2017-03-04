@@ -5,7 +5,7 @@ RSpec.describe ProjectsController, type: :controller do
     context 'when not logged in' do
 
       it 'redirects to the login page' do
-        session[:user_id] = nil
+        clear_authentication
         project = FactoryGirl.create(:project)
         get :show, params: {id: project.id}
         expect(response).to redirect_to(login_path)

@@ -5,7 +5,7 @@ RSpec.describe ProjectsController, type: :controller do
     context 'when not logged in' do
 
       it 'redirects to the login page' do
-        session[:user_id] = nil
+        clear_authentication
         post :create, params: {project: FactoryGirl.attributes_for(:project)}
         expect(response).to redirect_to login_path
       end
@@ -16,7 +16,7 @@ RSpec.describe ProjectsController, type: :controller do
 
       before(:each) do
         @user = FactoryGirl.create(:user)
-        session[:user_id] = @user.id
+        set_authentication(@user)
       end
 
       context 'with valid input' do
