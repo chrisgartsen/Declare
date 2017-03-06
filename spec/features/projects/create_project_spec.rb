@@ -1,6 +1,4 @@
-require 'rails_helper'
-
-RSpec.feature 'Create new project', type: :feature, js: true do
+RSpec.feature 'Create project', type: :feature, js: true do
 
   context 'as a user' do
 
