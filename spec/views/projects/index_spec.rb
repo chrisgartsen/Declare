@@ -84,8 +84,8 @@ RSpec.describe 'projects/index', type: :view do
     end
 
     it 'has a delete button' do
-      expect(rendered).to have_selector('tbody tr:first-child a#delete-project')
-      expect(rendered).to have_selector('tbody tr:last-child a#delete-project')
+      expect(rendered).to have_selector("tbody tr:first-child a#delete-project-#{@first_project.id}")
+      expect(rendered).to have_selector("tbody tr:last-child a#delete-project-#{@second_project.id}")
     end
 
   end
