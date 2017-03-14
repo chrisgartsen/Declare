@@ -25,6 +25,10 @@ class ProjectsController < ApplicationController
     @projects = Project.all
   end
 
+  def destroy
+
+  end
+
   private
 
   def check_authorisation
