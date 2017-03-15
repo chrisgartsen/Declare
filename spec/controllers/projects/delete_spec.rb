@@ -24,11 +24,29 @@ RSpec.describe ProjectsController, type: :controller do
 
     context 'when logged in' do
 
-      it 'deletes the project'
+      it 'deletes the project' do
+        project = FactoryGirl.create(:project)
+        set_authentication(project.user)
+        expect{
+          delete :destroy, params: {id: project.id}
+          }.to change(Project, :count).by(-1)
+      end
 
-      it 'does not delete a project for another user'
+      it 'does not delete a project for another user' do
+        project = FactoryGirl.create(:project)
+        set_authentication(FactoryGirl.create(:additional_user))
+        expect{
+          delete :destroy, params: {id: project.id}
+          }.to raise_error ActiveRecord::RecordNotFound
 
-      it 'redirects to the list page'
+      end
+
+      it 'redirects to the list page' do
+        project = FactoryGirl.create(:project)
+        set_authentication(project.user)
+        delete :destroy, params: {id: project.id}
+        expect(response).to redirect_to projects_path
+      end
 
     end
 
