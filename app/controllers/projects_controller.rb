@@ -21,6 +21,10 @@ class ProjectsController < ApplicationController
     end
   end
 
+  def edit
+    @project = current_user.projects.find(params[:id])
+  end
+
   def index
     @projects = Project.all
   end
