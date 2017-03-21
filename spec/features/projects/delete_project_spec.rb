@@ -2,7 +2,7 @@ RSpec.feature 'Delete project', type: :feature, js: true do
 
   context 'as a user' do
 
-    xit 'deletes a project' do
+    it 'deletes a project' do
       project = FactoryGirl.create(:project)
       login(project.user)
       navigate_to_page
@@ -26,6 +26,5 @@ RSpec.feature 'Delete project', type: :feature, js: true do
       end
 
   end
-
 
 end

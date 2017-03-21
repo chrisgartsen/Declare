@@ -1,11 +1,12 @@
 class ProjectsController < ApplicationController
 
   before_action :check_authorisation
+  before_action :find_project, only: [:edit, :update, :destroy, :show]
 
   include AuthenticationHelper
 
   def show
-    @project = current_user.projects.find(params[:id])
+
   end
 
   def new
@@ -22,7 +23,14 @@ class ProjectsController < ApplicationController
   end
 
   def edit
-    @project = current_user.projects.find(params[:id])
+  end
+
+  def update
+    if @project.update(project_params)
+      redirect_to project_path(@project)
+    else
+      render :edit
+    end
   end
 
   def index
@@ -30,7 +38,7 @@ class ProjectsController < ApplicationController
   end
 
   def destroy
-    current_user.projects.find(params[:id]).delete
+    @project.delete
     redirect_to projects_path
   end
 
@@ -42,6 +50,10 @@ class ProjectsController < ApplicationController
 
   def project_params
     params.require(:project).permit(:name)
+  end
+
+  def find_project
+    @project = current_user.projects.find(params[:id])
   end
 
 end
