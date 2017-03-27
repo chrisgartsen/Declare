@@ -1,0 +1,10 @@
+<tr>
+  <td id='project-name'><%= project.name %></td>
+  <td id='project-created-at'><%= project.created_at %></td>
+  <td id='project-updated-at'><%= project.updated_at %></td>
+  <td>
+    <%= link_to project, id: 'show-project' do %><i class="fa fa-search"></i><% end %>
+    <%= link_to edit_project_path(project), id: "edit-project-#{project.id}" do %><i class="fa fa-pencil"></i><% end %>
+    <%= link_to project, method: :delete, id: "delete-project-#{project.id}" do %><i class="fa fa-trash"></i><% end %>
+  </td>
+</tr>

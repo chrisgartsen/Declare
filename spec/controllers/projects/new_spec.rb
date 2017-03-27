@@ -6,7 +6,7 @@ RSpec.describe ProjectsController, type: :controller do
 
     context 'when not logged in' do
       it 'redirects to the login page' do
-        session[:user_id] = nil
+        clear_authentication
         get :new
         expect(response).to redirect_to(login_path)
       end
@@ -14,19 +14,20 @@ RSpec.describe ProjectsController, type: :controller do
 
     context 'when logged in' do
 
+      before(:each) do
+        @user = FactoryGirl.create(:user)
+        set_authentication(@user)
+      end
+
       it 'renders the new form template' do
-        user = FactoryGirl.create(:user)
-        session[:user_id] = user.id
         get :new
         expect(response).to render_template(:new)
       end
 
       it 'returns a new project object' do
-        user = FactoryGirl.create(:user)
-        session[:user_id] = user.id
         get :new
         expect(assigns(:project)).to be_a_new(Project)
-        expect(assigns(:project).user_id).to eq(user.id)
+        expect(assigns(:project).user_id).to eq(@user.id)
       end
 
     end

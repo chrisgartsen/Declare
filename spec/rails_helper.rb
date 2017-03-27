@@ -8,6 +8,10 @@ require 'rspec/rails'
 require 'capybara/rails'
 require 'capybara/poltergeist'
 
+
+require 'support/helper_methods'
+require 'support/behave_as_table'
+
 # use headless driver poltergeist for Travis CI environment
 
 if ENV['TRAVIS']
@@ -23,9 +27,12 @@ RSpec.configure do |config|
   config.infer_spec_type_from_file_location!
   config.filter_rails_from_backtrace!
 
+  # Helpers need to be included explicitly
   config.include ApplicationHelper
   config.include AuthenticationHelper
   config.include BreadcrumbHelper
+
+  config.include HelperMethods
 
   config.before(:each, type: :view) do
     view.extend AuthenticationHelper

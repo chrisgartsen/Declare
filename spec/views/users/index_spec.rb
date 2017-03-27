@@ -1,5 +1,3 @@
-require 'rails_helper'
-
 RSpec.describe 'users/index', type: :view do
 
   describe '#markup' do
@@ -29,17 +27,7 @@ RSpec.describe 'users/index', type: :view do
       render
     end
 
-    it 'has a table' do
-      expect(rendered).to have_selector 'table.table'
-    end
-
-    it 'has a table head section' do
-      expect(rendered).to have_selector 'thead'
-    end
-
-    it 'has a table body section' do
-      expect(rendered).to have_selector 'tbody'
-    end
+    it_behaves_like 'a table'
 
     it 'shows column headers' do
       expect(rendered).to have_selector 'th', text: 'Name'
