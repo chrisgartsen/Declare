@@ -26,7 +26,7 @@ RSpec.describe 'projects/edit', type: :view do
   describe '#form' do
 
     before(:each) do
-      @project = FactoryGirl.create(:project)
+      @project = FactoryGirl.build(:project)
       assign(:project, @project)
       render
     end
@@ -36,7 +36,7 @@ RSpec.describe 'projects/edit', type: :view do
     end
 
     it 'as a back button' do
-      expect(rendered).to have_link('Back to lists', href: projects_path)
+      expect(rendered).to have_link('Back to list', href: projects_path)
     end
 
     it 'has a submit button' do
@@ -53,7 +53,7 @@ RSpec.describe 'projects/edit', type: :view do
   describe '#form with errors' do
 
     before(:each) do
-      @project = FactoryGirl.create(:project, :missing_name)
+      @project = FactoryGirl.build(:project, :missing_name)
       @project.valid?
       assign(:project, @project)
       render
