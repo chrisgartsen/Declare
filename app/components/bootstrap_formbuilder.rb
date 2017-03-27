@@ -1,6 +1,6 @@
 class BootstrapFormbuilder < ActionView::Helpers::FormBuilder
 
-  def text_group(field_name)
+  def text_field_group(field_name)
 
     content_tag(:div, class: 'form-group') do
 

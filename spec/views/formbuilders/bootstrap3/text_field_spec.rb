@@ -4,7 +4,7 @@ RSpec.describe BootstrapFormbuilder do
 
     let(:project) { FactoryGirl.build(:project) }
     let(:builder) { BootstrapFormbuilder.new(:project, project, self, {})}
-    let(:output) { builder.text_group(:name) }
+    let(:output) { builder.text_field_group(:name) }
 
     describe 'text_field' do
 
