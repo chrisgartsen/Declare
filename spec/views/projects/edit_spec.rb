@@ -35,7 +35,7 @@ RSpec.describe 'projects/edit', type: :view do
       expect(rendered).to have_selector('form')
     end
 
-    it 'as a back button' do
+    xit 'as a back button' do
       expect(rendered).to have_link('Back to list', href: projects_path)
     end
 
