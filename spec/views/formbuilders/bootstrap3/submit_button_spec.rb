@@ -32,7 +32,10 @@ RSpec.describe BootstrapFormbuilder do
         expect(output).to have_selector('input.btn.btn-primary')
       end
 
-      it 'has a back button when a back-url is specified'
+      it 'has a back button when a back-url is specified' do
+        output = builder.submit_button_group('My own caption', back_url: projects_path)
+        expect(output).to have_link('Back', href: projects_path)
+      end
 
       it 'is wrapped in a group div' do
         output = builder.submit_button_group

@@ -24,7 +24,7 @@
         <% end %>
 
         <%= f.text_field_group(:name) %>
-        <%= f.submit_button_group('Update project', id: 'update-project') %>
+        <%= f.submit_button_group('Update project', id: 'update-project', back_url: projects_path) %>
 
       <% end %>
 
