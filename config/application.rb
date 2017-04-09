@@ -15,6 +15,9 @@ module RailsStarterApp
       g.helper false
     end
 
+    config.autoload_paths += %W(#{config.root}/lib)
+    config.autoload_paths += Dir["#{config.root}/lib/**/"]
+
     # read a config file at location /config/local_env.yml
     # this contains env variables
     # DATABASE_USERNAME

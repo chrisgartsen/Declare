@@ -7,7 +7,6 @@ class BootstrapFormbuilder < ActionView::Helpers::FormBuilder
   # Text field: generates a label and text field
   #
   # example: f.text_field_group(:name)
-  #
 
   def text_field_group(field_name)
 
