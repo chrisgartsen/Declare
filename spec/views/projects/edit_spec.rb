@@ -68,7 +68,7 @@ RSpec.describe 'projects/edit', type: :view do
     end
 
     it 'shows an error subheader' do
-      expect(rendered).to have_selector('p', text: '1 error prohibited this Project from being saved.')
+      expect(rendered).to have_selector('p', text: '1 error prohibited this Project from being saved:')
     end
 
     it 'list the error' do
