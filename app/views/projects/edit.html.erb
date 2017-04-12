@@ -10,33 +10,9 @@
       <h1 class='pageheader'>Edit Project</h1>
 
       <%= form_for @project, html: { class: 'form-horizontal' } do |f| %>
-
-        <% if @project.errors.any? %>
-          <div class='alert alert-danger'>
-            <strong>A problem has occurred while submitting your data.</strong>
-            <p><%= pluralize(@project.errors.count, 'error') %> prohibited this Project from being saved.</p>
-            <ul>
-              <% @project.errors.full_messages.each do |message| %>
-                <li><%= message %></li>
-              <% end %>
-            </ul>
-          </div>
-        <% end %>
-
-        <div class='form-group'>
-          <%= f.label(:name, class: 'control-label col-sm-4') %>
-          <div class='col-sm-6'>
-            <%= f.text_field(:name, class: 'form-control') %>
-          </div>
-        </div>
-
-        <div class='form-group'>
-          <div class="col-sm-offset-4 col-sm-9">
-            <%= f.submit('Update project', id: 'update-project', class:'btn btn-primary') %>
-            <%= link_to 'Back to list', projects_path , class: 'btn btn-default' %>
-          </div>
-        </div>
-
+        <%= f.error_message_group %>
+        <%= f.text_field_group(:name) %>
+        <%= f.submit_button_group('Update project', id: 'update-project', back_url: projects_path) %>
       <% end %>
 
     </div>
