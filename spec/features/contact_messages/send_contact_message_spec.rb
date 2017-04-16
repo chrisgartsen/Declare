@@ -10,7 +10,8 @@ RSpec.feature 'Send a contact mesage', type: :feature, js: true do
 
     private
 
-    def navigate_to_about_page
+    def navigate_to_contact_page
+      visit root_path
       click_link 'Contact'
       expect(page.find('.pageheader')).to have_content('Contact')
     end
