@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :users
   resources :projects
   resources :sessions, only: [:new, :create, :destroy]
-  resources :contact_messages, only: [:new, :create, :index]
+  resources :contact_messages, only: [:new, :create, :index, :show]
 
   # User related
   get 'users/new'
