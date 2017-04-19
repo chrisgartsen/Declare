@@ -2,10 +2,10 @@ Rails.application.routes.draw do
 
   get 'accounts/show'
 
-
   resources :users
   resources :projects
   resources :sessions, only: [:new, :create, :destroy]
+  resources :contact_messages, only: [:new, :create, :index]
 
   # User related
   get 'users/new'
