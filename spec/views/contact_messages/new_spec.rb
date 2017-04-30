@@ -46,6 +46,33 @@ RSpec.describe 'contact_messages/new', type: :view do
 
   describe '#form with errors' do
 
+    before(:each) do
+      message = FactoryGirl.build(:contact_message, :missing_email)
+      message.valid?
+      assign(:contact_message, message)
+      render
+    end
+
+    it 'has an error panel' do
+      expect(rendered).to have_selector('div.alert.alert-danger')
+    end
+
+    it 'shows an error header' do
+      expect(rendered).to have_selector('strong', text: 'A problem has occurred while submitting your data.')
+    end
+
+    it 'shows an error subheader' do
+      expect(rendered).to have_content('1 error prohibited this Contact message from being saved:')
+    end
+
+    it 'list the error' do
+      expect(rendered).to have_selector('li', text: "Email can't be blank")
+    end
+
+    it 'lists the correct number of errors' do
+      expect(rendered).to have_selector('li', count: 1)
+    end
+
   end
 
 end
