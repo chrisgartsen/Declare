@@ -2,6 +2,7 @@ main {
   min-height: 1100px;
 }
 
+
 footer {
   background-color: $footer-background-color;
   min-height: 200px;
@@ -59,4 +60,8 @@ img {
     padding-top: 30px;
     font-size: 32px;
   }
+  .navbar-nav {
+    padding-top: 20px;
+  }
+
 }
