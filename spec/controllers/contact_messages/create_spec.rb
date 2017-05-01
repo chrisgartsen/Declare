@@ -20,6 +20,16 @@ RSpec.describe ContactMessagesController, type: :controller do
 
     context 'with invalid input' do
 
+      it 're-renders the create form' do
+        post :create, params: { contact_message: FactoryGirl.attributes_for(:contact_message, :missing_email)}
+        expect(response).to render_template(:new)
+      end
+
+      it 'does not create a record in the database' do
+        expect {
+            post :create, params: { contact_message: FactoryGirl.attributes_for(:contact_message, :missing_email)}
+        }.not_to change(ContactMessage, :count)
+      end
 
     end
 
