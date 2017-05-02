@@ -17,6 +17,10 @@ class ContactMessagesController < ApplicationController
     @contact_message = ContactMessage.find(params[:id])
   end
 
+  def index
+    redirect_to login_path
+  end
+
   private
 
     def contact_message_params
