@@ -13,6 +13,10 @@ class ContactMessagesController < ApplicationController
     end
   end
 
+  def show
+    @contact_message = ContactMessage.find(params[:id])
+  end
+
   private
 
     def contact_message_params
