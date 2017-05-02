@@ -47,7 +47,7 @@ RSpec.describe 'contact_messages/new', type: :view do
   describe '#form with errors' do
 
     before(:each) do
-      message = FactoryGirl.build(:contact_message, :missing_email)
+      message = FactoryGirl.build(:contact_message, :missing_message)
       message.valid?
       assign(:contact_message, message)
       render
@@ -66,7 +66,7 @@ RSpec.describe 'contact_messages/new', type: :view do
     end
 
     it 'list the error' do
-      expect(rendered).to have_selector('li', text: "Email can't be blank")
+      expect(rendered).to have_selector('li', text: "Message can't be blank")
     end
 
     it 'lists the correct number of errors' do

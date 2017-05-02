@@ -7,6 +7,10 @@ FactoryGirl.define do
       email nil
     end
 
+    trait :invalid_email_format do
+      email 'invalid#mail_format'
+    end
+
     trait :missing_message do
       message nil
     end

@@ -6,6 +6,12 @@ RSpec.describe ContactMessage, type: :model do
     expect(contact_message.errors[:email]).to include("can't be blank")
   end
 
+  it 'requires the email to be valid format' do
+    contact_message = FactoryGirl.build(:contact_message, :invalid_email_format)
+    contact_message.valid?
+    expect(contact_message.errors[:email]).to include("does not appear to be a valid e-mail address")
+  end
+
   it 'requires a message' do
     contact_message = FactoryGirl.build(:contact_message, :missing_message)
     contact_message.valid?
