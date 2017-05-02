@@ -18,6 +18,7 @@
           <%= f.label(:message, class: 'col-sm-4 control-label') %>
           <div class="col-sm-6"><%= f.text_area(:message, class: 'form-control', rows: 10) %></div>
         </div>
+        <%= recaptcha_tags %>
         <%= f.submit_button_group('Send message') %>
       <% end %>
 

@@ -6,7 +6,7 @@ class ContactMessagesController < ApplicationController
 
   def create
     @contact_message = ContactMessage.new(contact_message_params)
-    if @contact_message.save
+    if verify_recaptcha(model: @contact_message) && @contact_message.save
       redirect_to contact_message_path(@contact_message)
     else
       render :new
