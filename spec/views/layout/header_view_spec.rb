@@ -45,6 +45,10 @@ RSpec.describe 'layouts/_header', type: :view do
       expect(rendered).not_to have_selector('a', text: "Projects")
     end
 
+    it 'does not have a view all contact messages link' do
+      expect(rendered).not_to have_link('Contact messages', href: contact_messages_path)
+    end
+
   end
 
   context 'when logged in as user' do
@@ -75,6 +79,10 @@ RSpec.describe 'layouts/_header', type: :view do
       expect(rendered).to have_link('Projects', href: projects_path)
     end
 
+    it 'does not have a view all contact messages link' do
+      expect(rendered).not_to have_link('Contact messages', href: contact_messages_path)
+    end
+
   end
 
   context 'when logged in as admin' do
@@ -87,6 +95,10 @@ RSpec.describe 'layouts/_header', type: :view do
 
     it 'has a view all users link' do
       expect(rendered).to have_link('Users', href: users_path)
+    end
+
+    it 'has a view all contact messages link' do
+      expect(rendered).to have_link('Contact messages', href: contact_messages_path)
     end
 
   end
