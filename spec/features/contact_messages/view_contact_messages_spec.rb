@@ -24,7 +24,7 @@ RSpec.feature 'View contact messages', type: :feature, js: true do
     end
 
     def check_content
-      expect(page.find('.pagheader')).to have_content('Contact messages')
+      expect(page.find('.pageheader')).to have_content('Contact messages')
       expect(page.find('table')).to have_content(@contact_message.email)
       expect(page.find('table')).to have_content(@contact_message.message)
     end
