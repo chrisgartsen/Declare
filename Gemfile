@@ -15,6 +15,8 @@ gem 'font-awesome-sass'
 gem 'uglifier', '>= 1.3.0'
 gem 'jquery-rails'
 gem 'turbolinks', '~> 5'
+gem 'validates_email_format_of'
+gem 'recaptcha', require: 'recaptcha/rails'
 
 group :development, :test do
   gem 'byebug', platform: :mri
