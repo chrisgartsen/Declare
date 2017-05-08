@@ -1,5 +1,7 @@
 class ContactMessagesController < ApplicationController
 
+  include AuthenticationHelper
+
   def new
     @contact_message = ContactMessage.new
   end
@@ -18,7 +20,11 @@ class ContactMessagesController < ApplicationController
   end
 
   def index
-    redirect_to login_path
+    if is_admin?
+      @contact_messages = ContactMessage.all
+    else
+      redirect_to login_path
+    end
   end
 
   private

@@ -15,5 +15,10 @@ FactoryGirl.define do
       message nil
     end
 
+    factory :second_message do
+      email   Faker::Internet.email
+      message Faker::Lorem.paragraph
+    end
+
   end
 end

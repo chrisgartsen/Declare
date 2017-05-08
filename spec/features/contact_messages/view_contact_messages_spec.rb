@@ -20,7 +20,7 @@ RSpec.feature 'View contact messages', type: :feature, js: true do
     end
 
     def navigate_to_page
-      click_link 'contact-messages'
+      click_link 'list-contact-messages'
     end
 
     def check_content
