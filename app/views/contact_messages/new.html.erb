@@ -14,15 +14,7 @@
       <%= form_for @contact_message, html: { class: 'form-horizontal' } do |f| %>
         <%= f.error_message_group %>
         <%= f.text_field_group(:email) %>
-        <div class="form-group">
-          <%= f.label(:message, class: 'col-sm-4 control-label') %>
-          <div class="col-sm-6"><%= f.text_area(:message, class: 'form-control', rows: 10) %></div>
-        </div>
-        <div class='form-group'>
-          <div class='col-sm-8 col-md-offset-4'>
-            <%= recaptcha_tags hl: 'en' %>
-          </div>
-        </div>
+        <%= f.text_area_group(:message) %>
         <%= f.submit_button_group('Send message') %>
       <% end %>
 
