@@ -11,6 +11,22 @@ FactoryGirl.define do
     trait :missing_name do
       name nil
     end
+
+    trait :euro do
+      code 'EUR'
+      name 'Euro'
+    end
+
+    trait :usd do
+      code 'USD'
+      name 'US Dollars'
+    end
+
+    trait :gbp do
+      code 'GBP'
+      name 'Pound Sterling'
+    end
+
   end
 
 end
