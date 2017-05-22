@@ -13,6 +13,7 @@ RSpec.feature 'View list of currencies', type: :feature, js: true do
     private
 
     def navigate_to_page
+      click_link 'config'
       click_link 'list-currencies'
     end
 
