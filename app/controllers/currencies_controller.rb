@@ -1,8 +1,6 @@
 class CurrenciesController < ApplicationController
 
-  before_action :check_authorisation
-
-  include AuthenticationHelper
+  before_action :check_admin_authorisation
 
   def index
     @currencies = Currency.all

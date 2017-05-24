@@ -3,8 +3,6 @@ class ProjectsController < ApplicationController
   before_action :check_authorisation
   before_action :find_project, only: [:edit, :update, :destroy, :show]
 
-  include AuthenticationHelper
-
   def show
 
   end
@@ -44,16 +42,12 @@ class ProjectsController < ApplicationController
 
   private
 
-  def check_authorisation
-    redirect_to(login_path) unless logged_in?
-  end
+    def project_params
+      params.require(:project).permit(:name)
+    end
 
-  def project_params
-    params.require(:project).permit(:name)
-  end
-
-  def find_project
-    @project = current_user.projects.find(params[:id])
-  end
+    def find_project
+      @project = current_user.projects.find(params[:id])
+    end
 
 end
