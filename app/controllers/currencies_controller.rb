@@ -6,10 +6,4 @@ class CurrenciesController < ApplicationController
     @currencies = Currency.all
   end
 
-  private
-
-    def check_authorisation
-      redirect_to login_path unless is_admin?
-    end
-
 end
