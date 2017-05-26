@@ -8,9 +8,7 @@ require 'rspec/rails'
 require 'capybara/rails'
 require 'capybara/poltergeist'
 
-
-require 'support/helper_methods'
-require 'support/behave_as_table'
+Dir[Rails.root.join("spec/support/**/*.rb")].each { |file| require file }
 
 # use headless driver poltergeist for Travis CI environment
 

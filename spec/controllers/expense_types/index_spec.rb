@@ -2,6 +2,8 @@ RSpec.describe ExpenseTypesController, type: :controller do
 
   describe 'GET #index' do
 
+    it_behaves_like 'an admin index action'
+
     context 'when logged in as an admin' do
 
       it 'renders the index view' do
@@ -16,26 +18,6 @@ RSpec.describe ExpenseTypesController, type: :controller do
         hotel = FactoryGirl.create(:expense_type, :hotel_expense)
         get :index
         expect(assigns(:expense_types)).to match_array([cash, hotel])
-      end
-
-    end
-
-    context 'when logged in as a user' do
-
-      it 'redirects to the login page' do
-        set_authentication(FactoryGirl.create(:user))
-        get :index
-        expect(response).to redirect_to(login_path)
-      end
-
-    end
-
-    context 'when not logged in' do
-
-      it 'redirects to the login page' do
-        clear_authentication
-        get :index
-        expect(response).to redirect_to(login_path)
       end
 
     end
