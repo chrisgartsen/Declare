@@ -6,5 +6,13 @@ FactoryGirl.define do
       name nil
     end
 
+    trait :cash_expense do
+      name 'Cash Expenses'
+    end
+
+    trait :hotel_expense do
+      name 'Hotel Expenses'
+    end
+
   end
 end
