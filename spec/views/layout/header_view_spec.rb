@@ -49,6 +49,10 @@ RSpec.describe 'layouts/_header', type: :view do
       expect(rendered).not_to have_selector('a', text: 'Currencies')
     end
 
+    it 'does not have an expense types link' do
+      expect(rendered).not_to have_selector('a', text: 'Expense types')
+    end
+
     it 'does not have a view all contact messages link' do
       expect(rendered).not_to have_link('Contact messages', href: contact_messages_path)
     end
@@ -81,6 +85,10 @@ RSpec.describe 'layouts/_header', type: :view do
 
     it 'does not have a currencies link' do
       expect(rendered).not_to have_link('Currencies', href: currencies_path)
+    end
+
+    it 'does not have an expense types link' do
+      expect(rendered).not_to have_link('Expense types', href: expense_types_path)
     end
 
     it 'has a projects link' do
