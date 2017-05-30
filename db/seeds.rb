@@ -24,3 +24,15 @@ Currency.create(code: 'DKK', name: 'Danish Krone')
 Currency.create(code: 'JPY', name: 'Japanese Yen')
 
 p "Seed created #{Currency.count} currencies"
+
+# Expense types
+
+ExpenseType.delete_all
+
+ExpenseType.create(name: 'Cash expense')
+ExpenseType.create(name: 'Travel expense')
+ExpenseType.create(name: 'Parking cost')
+ExpenseType.create(name: 'Hotel stay')
+ExpenseType.create(name: 'Public transport')
+
+p "Seed created #{ExpenseType.count} expense types"
