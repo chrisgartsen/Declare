@@ -1,6 +1,6 @@
 class ContactMessagesController < ApplicationController
 
-  include AuthenticationHelper
+  before_action :check_admin_authorisation, only: [:index]
 
   def new
     @contact_message = ContactMessage.new
@@ -20,11 +20,7 @@ class ContactMessagesController < ApplicationController
   end
 
   def index
-    if is_admin?
-      @contact_messages = ContactMessage.all
-    else
-      redirect_to login_path
-    end
+    @contact_messages = ContactMessage.all
   end
 
   private

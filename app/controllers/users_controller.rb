@@ -1,8 +1,6 @@
 class UsersController < ApplicationController
 
-  include AuthenticationHelper
-
-  before_action :check_admin, only: [:index]
+  before_action :check_admin_authorisation, only: [:index]
 
   def new
     @user = User.new
@@ -23,10 +21,6 @@ class UsersController < ApplicationController
   end
 
   private
-
-    def check_admin
-      redirect_to login_path unless is_admin?
-    end
 
     def user_params
       params.require(:user).permit(:name, :email, :password, :password_confirmation)
