@@ -20,4 +20,12 @@ RSpec.describe NavTabHelper, type: :helper do
     expect(helper.nav_tab('Currencies' => currencies_path)).to have_link('Currencies', href: currencies_path)
   end
 
+  it 'accepts multple locations' do
+    input = { 'Home' => '#', 'Currencies' => currencies_path, 'Expense types' => expense_types_path }
+    expect(helper.nav_tab(input)).to have_selector('li', count: 3)
+    expect(helper.nav_tab(input)).to have_link('Home', href: '#')
+    expect(helper.nav_tab(input)).to have_link('Currencies', href: currencies_path)
+    expect(helper.nav_tab(input)).to have_link('Expense types', href: expense_types_path)
+  end
+
 end
