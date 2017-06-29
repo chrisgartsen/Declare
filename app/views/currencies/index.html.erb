@@ -11,19 +11,12 @@
                   'Expense types' => expense_types_path,
                   'Payment types' => payment_types_path) %>
 
-      <table class='table table-hover'>
-        <thead>
-          <th>Code</th>
-          <th>Name</th>
-          <th>Created at</th>
-        </thead>
-
-        <tbody>
-          <%= render @currencies %>
-        </tbody>
-
-      </table>
+      <%= table(['Code', 'Name', 'Created at']) do %>
+        <%= render @currencies %>
+      <% end %>
 
     </div>
   </div>
+
 </div>
+

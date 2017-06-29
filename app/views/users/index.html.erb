@@ -9,20 +9,9 @@
 
       <h1 class='pageheader'>Users</h1>
 
-      <table class='table table-hover'>
-        <thead>
-          <th>Name</th>
-          <th>Email</th>
-          <th>Admin</th>
-          <th>Created at</th>
-          <th>Updated at</th>
-        </thead>
-        <tbody>
-
-          <%= render @users %>
-
-        </tbody>
-      </table>
+      <%= table(['Name', 'Email', 'Admin', 'Created at', 'Updated at']) do %>
+        <%= render @users %>
+      <% end %>
 
     </div>
   </div>

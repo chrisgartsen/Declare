@@ -11,17 +11,9 @@
                   'Expense types' => expense_types_path,
                   'Payment types' => '#') %>
 
-      <table class='table table-hover'>
-        <thead>
-          <th>Name</th>
-          <th>Created at</th>
-        </thead>
-
-        <tbody>
-          <%= render @payment_types %>
-        </tbody>
-
-      </table>
+      <%= table(['Name','Created at']) do %>
+        <%= render @payment_types %>
+      <% end %>
 
     </div>
   </div>

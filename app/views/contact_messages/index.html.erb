@@ -9,18 +9,9 @@
 
       <h1 class='pageheader'>Contact messages</h1>
 
-      <table class='table table-hover'>
-        <thead>
-          <th>Email</th>
-          <th>Message</th>
-          <th>Created at</th>
-        </thead>
-        <tbody>
-
-          <%= render @contact_messages %>
-
-        </tbody>
-      </table>
+      <%= table(['Email','Message', 'Created at']) do %>
+        <%= render @contact_messages %>
+      <% end %>
 
     </div>
   </div>
