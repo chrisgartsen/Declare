@@ -36,3 +36,14 @@ ExpenseType.create(name: 'Hotel stay')
 ExpenseType.create(name: 'Public transport')
 
 p "Seed created #{ExpenseType.count} expense types"
+
+# Payment types
+
+PaymentType.delete_all
+
+PaymentType.create(name: 'Cash')
+PaymentType.create(name: 'Credit Card')
+PaymentType.create(name: 'Debit Card')
+PaymentType.create(name: 'Other')
+
+p "Seed created #{PaymentType.count} payment types"
