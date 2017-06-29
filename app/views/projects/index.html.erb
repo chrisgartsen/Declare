@@ -7,7 +7,7 @@
   <div class='row'>
     <div class='col-md-10 col-md-offset-1'>
 
-      <h1 class='pageheader'>Projects</h1>
+      <%= pageheader('Projects') %>
 
       <%= table(['Name', 'Created at', 'Updated at', '']) do %>
         <%= render @projects %>
