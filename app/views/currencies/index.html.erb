@@ -7,7 +7,9 @@
   <div class='row'>
     <div class='col-md-10 col-md-offset-1'>
 
-      <h1 class='pageheader'>Currencies</h1>
+      <%= nav_tab('Currencies' => '#',
+                  'Expense types' => expense_types_path,
+                  'Payment types' => payment_types_path) %>
 
       <table class='table table-hover'>
         <thead>
