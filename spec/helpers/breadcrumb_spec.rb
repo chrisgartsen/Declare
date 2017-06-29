@@ -1,8 +1,6 @@
-require 'rails_helper'
-
 RSpec.describe BreadcrumbHelper, type: :helper do
 
-  it 'is an unordered list' do
+  it 'is an ordered list' do
     expect(helper.breadcrumb()).to have_selector('ol.breadcrumb')
   end
 
