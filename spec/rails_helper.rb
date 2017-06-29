@@ -30,6 +30,7 @@ RSpec.configure do |config|
   config.include AuthenticationHelper
   config.include BreadcrumbHelper
   config.include NavTabHelper
+  config.include TableHelper
 
   config.include HelperMethods
 
@@ -37,6 +38,7 @@ RSpec.configure do |config|
     view.extend AuthenticationHelper
     view.extend BreadcrumbHelper
     view.extend NavTabHelper
+    view.extend TableHelper
   end
 
   config.before(:suite) do
