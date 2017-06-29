@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :users
   resources :currencies, only: [:index]
   resources :expense_types, only: [:index]
+  resources :payment_types, only: [:index]
   resources :projects
   resources :sessions, only: [:new, :create, :destroy]
   resources :contact_messages, only: [:new, :create, :index, :show]

@@ -6,7 +6,7 @@ FactoryGirl.define do
       name nil
     end
 
-    trait :credit_card_payment do
+    trait :credit_card do
       name 'Credit Card'
     end
 
