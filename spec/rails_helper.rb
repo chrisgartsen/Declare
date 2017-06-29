@@ -29,12 +29,14 @@ RSpec.configure do |config|
   config.include ApplicationHelper
   config.include AuthenticationHelper
   config.include BreadcrumbHelper
+  config.include NavTabHelper
 
   config.include HelperMethods
 
   config.before(:each, type: :view) do
     view.extend AuthenticationHelper
     view.extend BreadcrumbHelper
+    view.extend NavTabHelper
   end
 
   config.before(:suite) do

@@ -27,7 +27,7 @@ module NavTabHelper
   end
 
   def render_active_tab_item(caption)
-    content_tag(:li, class: 'active') do
+    content_tag(:li, class: 'active pageheader') do
       link_to(caption, '#')
     end
   end
