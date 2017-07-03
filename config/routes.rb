@@ -21,6 +21,11 @@ Rails.application.routes.draw do
   get '/contact', to: 'contact_messages#new'
   get '/about',   to: 'static_pages#show', page: 'about'
 
+
+  constraints AuthenticatedRouteConstraint.new do
+    root 'accounts#show'
+  end
+
   root 'static_pages#show', page: 'home'
 
 end
