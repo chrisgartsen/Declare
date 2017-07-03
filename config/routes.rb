@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'dashboard/show'
+
   resources :users
   resources :currencies, only: [:index]
   resources :expense_types, only: [:index]
