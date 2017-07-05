@@ -4,15 +4,28 @@ RSpec.describe DashboardsController do
 
     context 'when not logged in' do
 
-      it 'redirects to the login page'
+      it 'redirects to the login page' do
+        clear_authentication
+        get :show
+        expect(response).to redirect_to(login_path)
+      end
 
     end
 
     context 'when logged in' do
 
-      it 'returns the users dashboard object'
+      xit 'returns the users dashboard object' do
+        user = FactoryGirl.create(:user)
+        set_authentication(user)
+        get :show
+        expect(assigns(:dashboard).user_id).to eq(user.id)
+      end
 
-      it 'renders the show page'
+      it 'renders the show page' do
+        set_authentication(FactoryGirl.create(:user))
+        get :show
+        expect(response).to render_template(:show)
+      end
 
     end
 
