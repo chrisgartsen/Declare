@@ -14,11 +14,11 @@ RSpec.describe DashboardsController do
 
     context 'when logged in' do
 
-      xit 'returns the users dashboard object' do
+      it 'returns the users dashboard object' do
         user = FactoryGirl.create(:user)
         set_authentication(user)
         get :show
-        expect(assigns(:dashboard).user_id).to eq(user.id)
+        expect(assigns(:dashboard).user_name).to eq(user.name)
       end
 
       it 'renders the show page' do
