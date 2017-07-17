@@ -1,1 +1,14 @@
-<%= pageheader('Dashboard') %>
+<% content_for(:breadcrumb) do %>
+  <%= breadcrumb('Dashboard' =>'#') %>
+<% end %>
+
+<div class='container'>
+
+  <div class='row'>
+    <div class='col-md-6 col-md-offset-2'>
+
+      <h1 class='pageheader'>Welcome <%= @dashboard.user_name %></h1>
+
+    </div>
+  </div>
+</div>
