@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :dashboard
   resources :users
   resources :currencies, only: [:index]
   resources :expense_types, only: [:index]
@@ -23,7 +24,7 @@ Rails.application.routes.draw do
 
 
   constraints AuthenticatedRouteConstraint.new do
-    root 'accounts#show'
+    root 'dashboards#show'
   end
 
   root 'static_pages#show', page: 'home'
