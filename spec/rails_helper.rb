@@ -8,9 +8,7 @@ require 'rspec/rails'
 require 'capybara/rails'
 require 'capybara/poltergeist'
 
-
-require 'support/helper_methods'
-require 'support/behave_as_table'
+Dir[Rails.root.join("spec/support/**/*.rb")].each { |file| require file }
 
 # use headless driver poltergeist for Travis CI environment
 
@@ -31,12 +29,18 @@ RSpec.configure do |config|
   config.include ApplicationHelper
   config.include AuthenticationHelper
   config.include BreadcrumbHelper
+  config.include NavTabHelper
+  config.include TableHelper
+  config.include PageHelper
 
   config.include HelperMethods
 
   config.before(:each, type: :view) do
     view.extend AuthenticationHelper
     view.extend BreadcrumbHelper
+    view.extend NavTabHelper
+    view.extend TableHelper
+    view.extend PageHelper
   end
 
   config.before(:suite) do

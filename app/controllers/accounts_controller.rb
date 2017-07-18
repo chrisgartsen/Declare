@@ -1,7 +1,5 @@
 class AccountsController < ApplicationController
 
-  include AuthenticationHelper
-
   before_action :check_current_user
 
   def show

@@ -1,0 +1,20 @@
+<% content_for(:breadcrumb) do %>
+  <%= breadcrumb('Payment types' =>'#') %>
+<% end %>
+
+<div class='container'>
+
+  <div class='row'>
+    <div class='col-md-10 col-md-offset-1'>
+
+      <%= nav_tab('Currencies' => currencies_path,
+                  'Expense types' => expense_types_path,
+                  'Payment types' => '#') %>
+
+      <%= table(['Name','Created at']) do %>
+        <%= render @payment_types %>
+      <% end %>
+
+    </div>
+  </div>
+</div>

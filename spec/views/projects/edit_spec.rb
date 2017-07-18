@@ -36,7 +36,7 @@ RSpec.describe 'projects/edit', type: :view do
     end
 
     it 'as a back button' do
-      expect(rendered).to have_link('Back to list', href: projects_path)
+      expect(rendered).to have_link('Back', href: projects_path)
     end
 
     it 'has a submit button' do
@@ -68,7 +68,7 @@ RSpec.describe 'projects/edit', type: :view do
     end
 
     it 'shows an error subheader' do
-      expect(rendered).to have_selector('p', text: '1 error prohibited this Project from being saved.')
+      expect(rendered).to have_selector('p', text: '1 error prohibited this Project from being saved:')
     end
 
     it 'list the error' do
