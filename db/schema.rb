@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170627190125) do
+ActiveRecord::Schema.define(version: 20170719190439) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,6 +36,23 @@ ActiveRecord::Schema.define(version: 20170627190125) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["name"], name: "index_expense_types_on_name", unique: true, using: :btree
+  end
+
+  create_table "expenses", force: :cascade do |t|
+    t.integer  "user_id",                                 null: false
+    t.integer  "project_id",                              null: false
+    t.integer  "payment_type_id"
+    t.integer  "expense_type_id"
+    t.integer  "currency_id"
+    t.date     "expense_date"
+    t.decimal  "amount",          precision: 8, scale: 2
+    t.datetime "created_at",                              null: false
+    t.datetime "updated_at",                              null: false
+    t.index ["currency_id"], name: "index_expenses_on_currency_id", using: :btree
+    t.index ["expense_type_id"], name: "index_expenses_on_expense_type_id", using: :btree
+    t.index ["payment_type_id"], name: "index_expenses_on_payment_type_id", using: :btree
+    t.index ["project_id"], name: "index_expenses_on_project_id", using: :btree
+    t.index ["user_id"], name: "index_expenses_on_user_id", using: :btree
   end
 
   create_table "payment_types", force: :cascade do |t|
@@ -65,5 +82,10 @@ ActiveRecord::Schema.define(version: 20170627190125) do
     t.index ["name"], name: "index_users_on_name", unique: true, using: :btree
   end
 
+  add_foreign_key "expenses", "currencies"
+  add_foreign_key "expenses", "expense_types"
+  add_foreign_key "expenses", "payment_types"
+  add_foreign_key "expenses", "projects"
+  add_foreign_key "expenses", "users"
   add_foreign_key "projects", "users"
 end
