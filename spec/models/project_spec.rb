@@ -18,4 +18,14 @@ RSpec.describe Project, type: :model do
     expect{FactoryGirl.create(:project)}.to change(Project, :count).by(1)
   end
 
+  it 'has a total amount with default zero' do
+    project = FactoryGirl.create(:project)
+    expect(project.total_amount).to eq 0
+  end
+
+  it 'has an outstanding amount with default zero' do
+    project = FactoryGirl.create(:project)
+    expect(project.outstanding_amount).to eq 0
+  end
+
 end
