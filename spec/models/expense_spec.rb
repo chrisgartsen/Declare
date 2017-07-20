@@ -1,5 +1,13 @@
 require 'rails_helper'
 
 RSpec.describe Expense, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+
+  it 'requires a user'
+  it 'requires a project'
+  it 'requires a payment type'
+  it 'requires an expense type'
+  it 'requires a currency'
+  it 'requires an expense date'
+  it 'requires an amount'
+
 end
