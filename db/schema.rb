@@ -39,7 +39,6 @@ ActiveRecord::Schema.define(version: 20170719190439) do
   end
 
   create_table "expenses", force: :cascade do |t|
-    t.integer  "user_id",                                 null: false
     t.integer  "project_id",                              null: false
     t.integer  "payment_type_id"
     t.integer  "expense_type_id"
@@ -52,7 +51,6 @@ ActiveRecord::Schema.define(version: 20170719190439) do
     t.index ["expense_type_id"], name: "index_expenses_on_expense_type_id", using: :btree
     t.index ["payment_type_id"], name: "index_expenses_on_payment_type_id", using: :btree
     t.index ["project_id"], name: "index_expenses_on_project_id", using: :btree
-    t.index ["user_id"], name: "index_expenses_on_user_id", using: :btree
   end
 
   create_table "payment_types", force: :cascade do |t|
@@ -86,6 +84,5 @@ ActiveRecord::Schema.define(version: 20170719190439) do
   add_foreign_key "expenses", "expense_types"
   add_foreign_key "expenses", "payment_types"
   add_foreign_key "expenses", "projects"
-  add_foreign_key "expenses", "users"
   add_foreign_key "projects", "users"
 end

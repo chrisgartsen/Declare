@@ -1,7 +1,6 @@
 class CreateExpenses < ActiveRecord::Migration[5.0]
   def change
     create_table :expenses do |t|
-      t.references :user,         foreign_key: true, null: false
       t.references :project,      foreign_key: true, null: false
       t.references :payment_type, foreign_key: true
       t.references :expense_type, foreign_key: true

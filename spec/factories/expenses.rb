@@ -1,11 +1,23 @@
 FactoryGirl.define do
   factory :expense do
-    user nil
-    project nil
-    payment_type nil
-    expense_type nil
-    amount "9.99"
-    currency nil
-    expense_date "2017-07-19"
+    project
+    payment_type
+    expense_type
+    amount Faker::Number.decimal(2)
+    currency
+    expense_date Date.today
+
+    trait :missing_project do
+      project nil
+    end
+
+    trait :missing_payment_type do
+      payment_type nil
+    end
+
+    trait :missing_expense_type do
+      expense_type nil
+    end
+
   end
 end
