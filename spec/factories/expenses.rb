@@ -19,5 +19,16 @@ FactoryGirl.define do
       expense_type nil
     end
 
+    trait :missing_currency do
+      currency nil
+    end
+
+    trait :missing_expense_date do
+      expense_date nil
+    end
+
+    trait :missing_amount do
+      amount nil
+    end
   end
 end
