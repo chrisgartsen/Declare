@@ -12,4 +12,8 @@ class Dashboard
     @user.name
   end
 
+  def projects
+    @projects ||= @user.projects
+  end
+
 end
