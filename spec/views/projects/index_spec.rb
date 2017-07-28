@@ -50,7 +50,7 @@ RSpec.describe 'projects/index', type: :view do
       session[:user_id] = user.id
       @first_project = FactoryGirl.create(:first_project, user_id: user.id)
       @second_project = FactoryGirl.create(:second_project, user_id: user.id)
-      assign(:projects, [@first_project, @second_project])
+    assign(:projects, [@first_project, @second_project])
       render
     end
 

@@ -5,9 +5,20 @@
 <div class='container'>
 
   <div class='row'>
-    <div class='col-md-6 col-md-offset-2'>
+    <div class='col-md-10 col-md-offset-2'>
 
-      <h1 class='pageheader'>Welcome <%= @dashboard.user_name %></h1>
+      <%= pageheader("Welcome #{@dashboard.user_name}") %>
+
+      <br/>
+
+      <h3>Projects</h3>
+
+      <%= table(['Name', 'Outstanding','Total']) do %>
+        <%= render partial: 'dashboards/project', collection: @dashboard.projects %>
+      <% end %>
+
+      <%= link_to 'Add project', new_project_path, class: 'btn btn-default' %>
+      <%= link_to 'Manage projects', projects_path, class: 'btn btn-default' %>
 
     </div>
   </div>
