@@ -34,7 +34,7 @@ end
 group :development do
   gem 'web-console'
   gem 'better_errors'
-  gem 'bullet'
+  #gem 'bullet'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

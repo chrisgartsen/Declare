@@ -21,6 +21,14 @@ RSpec.describe DashboardsController do
         expect(assigns(:dashboard).user_name).to eq(user.name)
       end
 
+      it 'returns the users projects' do
+        user = FactoryGirl.create(:user)
+        project = FactoryGirl.create(:project, user: user)
+        set_authentication(user)
+        get :show
+        expect(assigns(:dashboard).projects).to match_array([project])
+      end
+
       it 'renders the show page' do
         set_authentication(FactoryGirl.create(:user))
         get :show
