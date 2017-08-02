@@ -24,7 +24,20 @@ RSpec.describe ExpensesController, type: :controller do
         expect(response).to render_template(:index)
       end
 
-      it 'returns the users expenses'
+      it 'returns the users expenses' do
+        @project = FactoryGirl.create(:project, user: @user)
+        @expense_type = FactoryGirl.create(:expense_type)
+        @payment_type = FactoryGirl.create(:payment_type)
+        @currency = FactoryGirl.create(:currency)
+
+        @first_expense = FactoryGirl.create(:expense, project: @project, expense_type: @expense_type,
+                                                 payment_type: @payment_type, currency: @currency)
+        @second_expense = FactoryGirl.create(:expense, project: @project, expense_type: @expense_type,
+                                                 payment_type: @payment_type, currency: @currency)
+        get :index
+        expect(assigns(:expenses)).to match_array([@first_expense, @second_expense])
+
+      end
 
       it 'does not return other users expenses'
 
