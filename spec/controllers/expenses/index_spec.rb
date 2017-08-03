@@ -39,8 +39,16 @@ RSpec.describe ExpensesController, type: :controller do
 
       end
 
-      it 'does not return other users expenses'
-
+      it 'does not return other users expenses' do
+        @project = FactoryGirl.create(:project, user: FactoryGirl.create(:additional_user))
+        @expense_type = FactoryGirl.create(:expense_type)
+        @payment_type = FactoryGirl.create(:payment_type)
+        @currency = FactoryGirl.create(:currency)
+        @expense = FactoryGirl.create(:expense, project: @project, expense_type: @expense_type,
+                                            payment_type: @payment_type, currency: @currency)
+        get :index
+        expect(assigns(:expenses)).not_to include(@expense)
+      end
     end
 
   end
