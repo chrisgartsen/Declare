@@ -6,4 +6,8 @@ class ExpensesController < ApplicationController
     @expenses = current_user.expenses
   end
 
+  def new
+    @expense = Expense.new
+  end
+
 end
