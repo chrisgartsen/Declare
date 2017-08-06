@@ -101,6 +101,36 @@ RSpec.describe User, type: :model do
     expect(user.number_of_projects).to eq(2)
   end
 
+  it 'returns the users projects' do
+    user = FactoryGirl.create(:user)
+    second_user = FactoryGirl.create(:additional_user)
+    first_project = FactoryGirl.create(:first_project, user_id: user.id)
+    second_project = FactoryGirl.create(:second_project, user_id: user.id)
+    FactoryGirl.create(:third_project, user_id: second_user.id)
+    expect(user.projects).to match_array([first_project, second_project])
+  end
+
+  it 'returns the users expenses' do
+    @user = FactoryGirl.create(:user)
+    @project = FactoryGirl.create(:project, user: @user)
+    @second_project = FactoryGirl.create(:project, user: FactoryGirl.create(:additional_user))
+    @third_project = FactoryGirl.create(:second_project, user: @user)
+    @expense_type = FactoryGirl.create(:expense_type)
+    @payment_type = FactoryGirl.create(:payment_type)
+    @currency = FactoryGirl.create(:currency)
+
+    @first_expense = FactoryGirl.create(:expense, project: @project, expense_type: @expense_type,
+                                                 payment_type: @payment_type, currency: @currency)
+    @second_expense = FactoryGirl.create(:expense, project: @project, expense_type: @expense_type,
+                                                 payment_type: @payment_type, currency: @currency)
+    @third_expense = FactoryGirl.create(:expense, project: @second_project, expense_type: @expense_type,
+                                                 payment_type: @payment_type, currency: @currency)
+    @forth_expense = FactoryGirl.create(:expense, project: @third_project, expense_type: @expense_type,
+                                                 payment_type: @payment_type, currency: @currency)
+
+    expect(@user.expenses).to match_array([@first_expense, @second_expense, @forth_expense])
+
+  end
 
 
 end

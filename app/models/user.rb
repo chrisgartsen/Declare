@@ -35,4 +35,13 @@ class User < ApplicationRecord
     self.projects.count
   end
 
+  def expenses
+    @expenses = []
+    self.projects.each do | project |
+      @expenses += project.expenses.to_a
+    end
+    return @expenses
+  end
+
+
 end
