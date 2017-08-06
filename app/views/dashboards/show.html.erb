@@ -2,10 +2,10 @@
   <%= breadcrumb('Dashboard' =>'#') %>
 <% end %>
 
-<div class='container'>
+<% content_for(:layout_full) do %>col-md-10 col-md-offset-1<% end %>
 
   <div class='row'>
-    <div class='col-md-10 col-md-offset-2'>
+    <div class='col-md-8 col-md-offset-2'>
 
       <%= pageheader("Welcome #{@dashboard.user_name}") %>
 
@@ -22,4 +22,3 @@
 
     </div>
   </div>
-</div>
