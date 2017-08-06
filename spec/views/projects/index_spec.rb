@@ -17,7 +17,7 @@ RSpec.describe 'projects/index', type: :view do
     end
 
     it 'has a static reference to the index page' do
-      expect(breadcrumb).to have_selector('.breadcrumb li.active', text: 'Projects')
+      expect(breadcrumb).to have_selector('.breadcrumb li.is-active a', text: 'Projects')
     end
 
     it 'has a Add new project button' do

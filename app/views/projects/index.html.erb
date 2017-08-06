@@ -2,21 +2,16 @@
   <%= breadcrumb('Projects' =>'#') %>
 <% end %>
 
-<div class='container'>
+<div>
 
-  <div class='row'>
-    <div class='col-md-10 col-md-offset-1'>
+  <%= pageheader('Projects') %>
 
-      <%= pageheader('Projects') %>
+  <%= table(['Name', 'Created at', 'Updated at', '']) do %>
+    <%= render @projects %>
+  <% end %>
 
-      <%= table(['Name', 'Created at', 'Updated at', '']) do %>
-        <%= render @projects %>
-      <% end %>
+  <%= link_to new_project_path, id: 'add-project', class: 'button is-primary' do %>
+  <span class='icon'><i class="fa fa-plus"></i></span><span>Add project</span>
+  <% end %>
 
-      <%= link_to new_project_path, id: 'add-project', class: 'btn btn-primary' do %>
-        <i class="fa fa-plus fa-lg"></i> Add project
-      <% end %>
-
-    </div>
-  </div>
 </div>

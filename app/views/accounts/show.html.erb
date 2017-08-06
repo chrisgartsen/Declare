@@ -2,19 +2,21 @@
   <%= breadcrumb('Account' =>'#') %>
 <% end %>
 
-<div>
+<div class='columns'>
+  <div class='column is-half is-offset-one-quarter'>
 
-  <%= pageheader('Account Information') %>
+    <%= pageheader('Account Information') %>
 
-  <table>
-    <tr>
-      <th>Name</th>
-      <td><%= @user.name %></td>
-    </tr>
-    <tr>
-      <th>Email</th>
-      <td><%= @user.email %></td>
-    </tr>
-  </table>
+    <table>
+      <tr>
+        <th>Name</th>
+        <td><%= @user.name %></td>
+      </tr>
+      <tr>
+        <th>Email</th>
+        <td><%= @user.email %></td>
+      </tr>
+    </table>
 
+  </div>
 </div>
