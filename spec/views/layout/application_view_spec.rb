@@ -7,7 +7,7 @@ RSpec.describe 'layouts/application', type: :view do
   end
 
   it 'has a header section' do
-    expect(rendered).to have_selector('header')
+    expect(rendered).to have_selector('nav')
   end
 
   it 'has a main section' do
