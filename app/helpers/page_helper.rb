@@ -1,7 +1,7 @@
 module PageHelper
 
   def pageheader(title)
-    content_tag(:h1, class: 'pageheader') do
+    content_tag(:h1, class: 'title pageheader') do
       title
     end
   end

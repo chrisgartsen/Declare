@@ -1,8 +1,8 @@
 <%= yield(:breadcrumb) %>
 
-<main class='container-fluid'>
-  <div class='row'>
-    <div class='<%= content_for?(:layout_full)? yield(:layout_full) : 'col-md-6 col-md-offset-3' %>'>
+<main>
+  <div class='columns'>
+    <div class='column is-half is-offset-one-quarter'>
       <%= yield %>
     </div>
   </div>
