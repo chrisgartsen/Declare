@@ -2,36 +2,20 @@
   <%= breadcrumb('Projects' => projects_path, 'Show project' => '#') %>
 <% end %>
 
-<div class='container'>
+<div class='columns'>
+  <div class='column is-half is-offset-one-quarter'>
 
-  <div class='row'>
-    <div class='col-md-6 col-md-offset-2'>
+    <%= pageheader('Show project') %>
 
-      <%= pageheader('Show project') %>
-
-      <form class="form-horizontal">
-        <div class="form-group">
-          <label class="col-sm-3 control-label">Name</label>
-          <div class="col-sm-9">
-            <p class="form-control-static"><%= @project.name %></p>
-          </div>
-        </div>
-        <div class="form-group">
-          <label class="col-sm-3 control-label">Created at</label>
-          <div class="col-sm-9">
-            <p class="form-control-static"><%= @project.created_at %></p>
-          </div>
-        </div>
-        <div class="form-group">
-          <label class="col-sm-3 control-label">Updated at</label>
-          <div class="col-sm-9">
-            <p class="form-control-static"><%= @project.updated_at %></p>
-          </div>
-        </div>
-      </form>
-
-      <%= link_to 'Back to list', projects_path, class: 'btn btn-default' %>
-
-    </div>
+    <table>
+      <tr><th>Name</th><td><%= @project.name %></td></tr>
+      <tr><th>Created at</th><td><%= @project.created_at %></td></tr>
+      <tr><th>Updated at</th><td><%= @project.updated_at %></td></tr>
+    </table>
+    <br/>
+    <%= link_to projects_path, class: 'button is-default' do %>
+      <span class='icon'><i class="fa fa-arrow-left" aria-hidden="true"></i></span>
+      <span>Back to list</span>
+    <% end %>
   </div>
 </div>

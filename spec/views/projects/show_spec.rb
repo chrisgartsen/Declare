@@ -9,7 +9,7 @@ RSpec.describe 'projects/show', type: :view do
   let(:breadcrumb) { view.content_for(:breadcrumb)}
 
   it 'has a breadcrumb static reference to the view page' do
-    expect(breadcrumb).to have_selector('.breadcrumb li.active', text: 'Show project')
+    expect(breadcrumb).to have_selector('.breadcrumb li.is-active a', text: 'Show project')
   end
 
   it 'has a breadcrumb link back to the project index page' do
