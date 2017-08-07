@@ -2,23 +2,24 @@
   <%= breadcrumb('Dashboard' =>'#') %>
 <% end %>
 
-<% content_for(:layout_full) do %>col-md-10 col-md-offset-1<% end %>
+<%= pageheader("Welcome #{@dashboard.user_name}") %>
 
-  <div class='row'>
-    <div class='col-md-8 col-md-offset-2'>
+<br/>
 
-      <%= pageheader("Welcome #{@dashboard.user_name}") %>
+<h4 class="title is-4">Projects</h3>
 
-      <br/>
+<%= table(['Name', 'Outstanding','Total']) do %>
+  <%= render partial: 'dashboards/project', collection: @dashboard.projects %>
+<% end %>
 
-      <h3>Projects</h3>
+<%= link_to new_project_path, class: 'button is-default' do %>
+  <span class='icon'><i class="fa fa-plus" aria-hidden="true"></i></span>
+  <span>Add project</span>
+<% end %>
 
-      <%= table(['Name', 'Outstanding','Total']) do %>
-        <%= render partial: 'dashboards/project', collection: @dashboard.projects %>
-      <% end %>
+<%= link_to projects_path, class: 'button is-default' do %>
+  <span class='icon'><i class="fa fa-list" aria-hidden="true"></i></span>
+  <span>Manage projects</span>
+<% end %>
 
-      <%= link_to 'Add project', new_project_path, class: 'btn btn-default' %>
-      <%= link_to 'Manage projects', projects_path, class: 'btn btn-default' %>
 
-    </div>
-  </div>
