@@ -22,15 +22,15 @@ RSpec.describe 'projects/show', type: :view do
   end
 
   it 'shows the project name' do
-    expect(rendered).to have_selector('.form-control-static', text: @project.name)
+    expect(rendered).to have_selector('td', text: @project.name)
   end
 
   it 'shows the project created at date' do
-    expect(rendered).to have_selector('.form-control-static', text: @project.created_at)
+    expect(rendered).to have_selector('td', text: @project.created_at)
   end
 
   it 'shows the project created at date' do
-    expect(rendered).to have_selector('.form-control-static', text: @project.updated_at)
+    expect(rendered).to have_selector('td', text: @project.updated_at)
   end
 
   it 'has a return link to the index page' do
