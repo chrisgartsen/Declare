@@ -1,40 +1,52 @@
-<div class='jumbotron welcome'>
+<% content_for(:breadcrumb) do %>
+  <%= breadcrumb() %>
+<% end %>
 
-  <div class='container'>
-    <div class='col-sm-8'>
-      <%= pageheader('Manage your expenses') %>
-      <p class='lead'>Use Declare! to manage your expense declarations.</p>
-      <%= link_to 'Sign up', signup_path, id: 'sign-up', class: 'btn btn-lg btn-primary' %>
-    </div>
+<div class='columns'>
 
-    <div class='col-sm-4 visible-md visible-lg'>
-      <%= image_tag "coin.jpeg" %>
-    </div>
+  <div class='column is-4'>
+    <section class='hero'>
+      <div class='hero-body'>
+        <div class='container'>
+          <h1 class='pageheader title is-1'>Manage your expenses</h1>
+          <h2 class='subtitle is-4'>Use Declare! to manage your expense declarations.</h2>
+          <p><%= link_to 'Sign up', signup_path, id: 'sign-up', class: 'button is-primary' %></p>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <div class='column is-4 is-offset-2 has-text-centered'>
+    <%= image_tag "coin.jpeg" %>
   </div>
 
 </div>
 
-<div class='container-fluid'>
-  <div class='row text-center'>
-    <div class='col-sm-6 col-lg-3'>
-      <i class="fa fa-money fa-5x" aria-hidden="true"></i>
-      <h3>Expense management</h3>
-      <p>Manage and send in your expenses</p>
-    </div>
-    <div class='col-sm-6 col-lg-3'>
-      <i class="fa fa-bar-chart fa-5x" aria-hidden="true"></i>
-      <h3>Statistics</h3>
-      <p>Get insights into your expenses</p>
-    </div>
-    <div class='col-sm-6 col-lg-3'>
-      <i class="fa fa-arrows-h fa-5x" aria-hidden="true"></i>
-      <h3>Match payments</h3>
-      <p>Match your declarations with received payments</p>
-    </div>
-    <div class='col-sm-6 col-lg-3'>
-      <i class="fa fa-tablet fa-5x" aria-hidden="true"></i>
-      <h3>Mobile devices</h3>
-      <p>Get the app for mobile devices</p>
-    </div>
+<div class='columns is-multiline'>
+
+  <div class='column is-3 has-text-centered'>
+    <i class="fa fa-money fa-5x"></i>
+    <h1 class='title is-3'>Expense management</h1>
+    <h2 class= 'subtitle is-5'>Manage and send in your expenses</h2>
   </div>
+
+  <div class='column is-3 has-text-centered'>
+    <i class="fa fa-bar-chart fa-5x"></i>
+    <h1 class='title is-3'>Statistics</h1>
+    <h2 class= 'subtitle is-5'>Get insights into your expenses</h2>
+  </div>
+
+  <div class='column is-3 has-text-centered'>
+    <i class="fa fa-arrows-h fa-5x"></i>
+    <h1 class='title is-3'>Match payments</h1>
+    <h2 class= 'subtitle is-5'>Match your declarations with received payments</h2>
+  </div>
+
+  <div class='column is-3 has-text-centered'>
+    <i class="fa fa-tablet fa-5x"></i>
+    <h1 class='title is-3'>Mobile devices</h1>
+    <h2 class= 'subtitle is-5'>Get the app for mobile devices</h2>
+  </div>
+
 </div>
