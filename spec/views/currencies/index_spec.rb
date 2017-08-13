@@ -15,7 +15,7 @@ RSpec.describe 'currencies/index', type: :view do
     end
 
     it 'has a static reference to the index page' do
-      expect(breadcrumb).to have_selector('.breadcrumb li.active', text: 'Currencies')
+      expect(breadcrumb).to have_selector('.breadcrumb li.is-active a', text: 'Currencies')
     end
 
   end

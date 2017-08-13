@@ -15,7 +15,7 @@ RSpec.describe 'expense_types/index', type: :view do
     end
 
     it 'has a static reference to the index page' do
-      expect(breadcrumb).to have_selector('.breadcrumb li.active', text: 'Expense types')
+      expect(breadcrumb).to have_selector('.breadcrumb li.is-active a', text: 'Expense types')
     end
 
   end
