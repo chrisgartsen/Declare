@@ -15,7 +15,7 @@ RSpec.describe 'users/index', type: :view do
     end
 
     it 'has a static reference to the index page' do
-      expect(breadcrumb).to have_selector('.breadcrumb li.active', text: 'Users')
+      expect(breadcrumb).to have_selector('.breadcrumb li.is-active a', text: 'Users')
     end
 
   end
