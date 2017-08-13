@@ -30,7 +30,7 @@ RSpec.feature 'Signup user', type: :feature, js: true do
       end
 
       def check_outcome(user)
-        expect(page.find('.navbar-right')).to have_content(user.name)
+        expect(page.find('.navbar-end')).to have_content(user.name)
       end
 
   end
