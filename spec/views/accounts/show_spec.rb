@@ -15,7 +15,7 @@ RSpec.describe "accounts/show", type: :view do
   end
 
   it 'has a pageheader' do
-    expect(rendered).to have_selector('.pageheader', text: 'Account Information')
+    expect(rendered).to have_selector('.pageheader', text: 'Account information')
   end
 
   it 'shows the user name' do

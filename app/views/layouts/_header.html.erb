@@ -69,3 +69,20 @@
 
 </nav>
 
+
+<div class='modal' id='login-modal'>
+  <div class='modal-background'></div>
+  <div class="modal-card">
+    <header class="modal-card-head">
+      <h1 class="modal-card-title pageheader">Sign in</h1>
+      <button class="delete" aria-label="close" id='modal-close'></button>
+    </header>
+    <section class="modal-card-body">
+      <%= render partial: '/sessions/form' %>
+    </section>
+    <footer class="modal-card-foot">
+      <p>Don't have an account? <%= link_to 'Sign up', new_user_path %></p>
+    </footer>
+  </div>
+</div>
+
