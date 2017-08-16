@@ -8,8 +8,8 @@
     <p class="menu-label">Config</p>
     <ul class="menu-list">
       <li><%= link_to 'Currencies', currencies_path %></li>
-      <li><%= link_to 'Expense Types', expense_types_path %></li>
-      <li><a class='is-active'>Payment Types</a></li>
+      <li><%= link_to 'Expense types', expense_types_path %></li>
+      <li><a class='is-active'>Payment types</a></li>
     </ul>
   </aside>
 
@@ -17,7 +17,7 @@
 
 <div>
 
-  <%= pageheader('Payment Types') %>
+  <%= pageheader('Payment types') %>
 
   <%= table(['Name','Created at']) do %>
     <%= render @payment_types %>
