@@ -22,7 +22,7 @@ RSpec.feature 'Update project', type: :feature, js: true do
     def edit_name(new_value)
       within('form') do
         fill_in 'Name', with: new_value
-        click_button 'update-project'
+        click_button 'Update Project'
       end
     end
 

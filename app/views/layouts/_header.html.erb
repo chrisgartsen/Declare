@@ -1,51 +1,88 @@
-<header class='navbar navbar-inverse navbar-static-top <%= "main-page" if main_page? %>'>
+<nav class="navbar">
 
-  <div class='container'>
+  <div class="navbar-brand">
+    <%= link_to application_name, root_path, class: 'navbar-item' %>
+  </div>
 
-    <div class='navbar-header'>
-      <%= link_to application_name, root_path, class: 'navbar-brand' %>
-      <button type='button' class='navbar-toggle' data-toggle='collapse' data-target='.navbar-collapse'>
-        <span class='sr-only'>Toggle Navigation</span>
-        <span class='icon-bar'></span>
-        <span class='icon-bar'></span>
-        <span class='icon-bar'></span>
-      </button>
+  <div class="navbar-menu">
+
+    <div class="navbar-start">
+
+      <% if is_admin? %>
+
+        <%= link_to 'Users', users_path, class: 'navbar-item' %>
+        <%= link_to 'Contact Messages', contact_messages_path, id: 'list-contact-messages', class: 'navbar-item' %>
+
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link  is-active" id = 'config' href="#">Config</a>
+          <div class="navbar-dropdown ">
+            <%= link_to 'Currencies',    currencies_path,    id: 'list-currencies',    class: 'navbar-item' %>
+            <%= link_to 'Expense types', expense_types_path, id: 'list-expense-types', class: 'navbar-item' %>
+            <%= link_to 'Payment types', payment_types_path, id: 'list-payment-types', class: 'navbar-item' %>
+          </div>
+        </div>
+      <% end %>
+
+      <% if logged_in? %>
+        <%= link_to 'Projects', projects_path, id: 'list-projects', class: 'navbar-item' %>
+      <% end %>
+
     </div>
 
-    <ul class='nav navbar-nav navbar-left'>
-      <% if is_admin? %>
-        <li><%= link_to 'Users', users_path %></li>
-        <li><%= link_to 'Contact messages', contact_messages_path, id: 'list-contact-messages' %></li>
-        <li class='dropdown'>
-          <a href="#" class="dropdown-toggle"
-                      data-toggle="dropdown"
-                      role="button"
-                      aria-haspopup="true"
-                      aria-expanded="false"
-                      id = 'config'>Config
-            <span class="caret"></span>
-          </a>
-          <ul class="dropdown-menu">
-            <li><%= link_to 'Currencies', currencies_path, id: 'list-currencies' %></li >
-            <li><%= link_to 'Expense types', expense_types_path, id: 'list-expense-types' %></li >
-            <li><%= link_to 'Payment types', payment_types_path, id: 'list-payment-types' %></li >
-          </ul>
-        </li>
-      <% end %>
+    <div class="navbar-end">
       <% if logged_in? %>
-        <li><%= link_to 'Projects', projects_path, id: 'list-projects' %></li>
-      <% end %>
-    </ul>
 
-    <ul class='nav navbar-nav navbar-right collapse navbar-collapse'>
-      <% if logged_in? %>
-        <li><%= link_to user_name, '/accounts/show' %></li>
-        <li><%= link_to 'Log out', logout_path, id: 'log-out' %></li>
+        <div class='navbar-item'>
+          <%= link_to '/accounts/show', class: 'button is-primary' do %>
+            <span class="icon">
+              <i class="fa fa-user"></i>
+            </span>
+            <span><%= user_name %></span>
+          <% end %>
+        </div>
+
+        <div class='navbar-item'>
+          <%= link_to logout_path, id: 'log-out', class: 'button is-default' do %>
+            <span class="icon">
+              <i class="fa fa-sign-out"></i>
+            </span>
+            <span>Sign out</span>
+          <% end %>
+        </div>
+
       <% else %>
-        <li><%= link_to 'Log in', login_path, id: 'log-in' %></li>
+
+        <div class='navbar-item'>
+          <%= link_to login_path, id: 'log-in', class: 'button is-primary' do %>
+            <span class="icon">
+              <i class="fa fa-sign-in"></i>
+            </span>
+            <span>Sign in</span>
+          <% end %>
+        </div>
+
       <% end %>
-    </ul>
+
+    </div>
 
   </div>
 
-</header>
+</nav>
+
+
+<div class='modal' id='login-modal'>
+  <div class='modal-background'></div>
+  <div class="modal-card">
+    <header class="modal-card-head">
+      <h1 class="modal-card-title pageheader">Sign in</h1>
+      <button class="delete" aria-label="close" id='modal-close'></button>
+    </header>
+    <section class="modal-card-body">
+      <%= render partial: '/sessions/form' %>
+    </section>
+    <footer class="modal-card-foot">
+      <p>Don't have an account? <%= link_to 'Sign up', new_user_path %></p>
+    </footer>
+  </div>
+</div>
+

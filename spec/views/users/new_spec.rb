@@ -7,7 +7,7 @@ RSpec.describe 'users/new', type: :view do
     it 'has a static reference to the signup page' do
       assign(:user, User.new)
       render
-      expect(breadcrumb).to have_selector('.breadcrumb li.active', text: 'Sign up')
+      expect(breadcrumb).to have_selector('.breadcrumb li.is-active a', text: 'Sign up')
     end
 
   end
@@ -72,15 +72,15 @@ RSpec.describe 'users/new', type: :view do
     end
 
     it 'has an error panel' do
-      expect(rendered).to have_selector('div.alert.alert-danger')
+      expect(rendered).to have_selector('article.message.is-danger')
     end
 
     it 'shows an error header' do
-      expect(rendered).to have_selector('strong', text: 'A problem has occurred while signing up.')
+      expect(rendered).to have_selector('.message-header strong', text: 'A problem has occurred while signing up.')
     end
 
     it 'shows an error subheader' do
-      expect(rendered).to have_selector('p', text: '1 error occurred')
+      expect(rendered).to have_selector('.message-body strong', text: '1 error occurred')
     end
 
     it 'list the error' do

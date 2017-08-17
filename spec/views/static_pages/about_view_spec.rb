@@ -11,7 +11,7 @@ RSpec.describe 'static_pages/about', type: :view do
     end
 
     it 'has a static reference to the about page' do
-      expect(breadcrumb).to have_selector('.breadcrumb li.active', text: 'About')
+      expect(breadcrumb).to have_selector('.breadcrumb li.is-active a', text: 'About')
     end
 
   end

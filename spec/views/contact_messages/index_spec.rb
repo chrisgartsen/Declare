@@ -14,7 +14,7 @@ RSpec.describe 'contact_messages/index', type: :view do
     end
 
     it 'has a static reference to the index page' do
-      expect(breadcrumb).to have_selector('.breadcrumb li.active', text: 'Contact messages')
+      expect(breadcrumb).to have_selector('.breadcrumb li.is-active a', text: 'Contact messages')
     end
 
     it_behaves_like 'a table'

@@ -1,24 +1,19 @@
 main {
-  min-height: 1100px;
+  min-height: 1000px;
 }
 
+.navbar-brand {
+  a {
+    font-weight: bold;
+    font-size: 2em;
+  }
+}
+
+aside.menu {
+  padding-top: 80px;
+}
 
 footer {
-  background-color: $footer-background-color;
-  min-height: 200px;
-  text-align: center;
-  padding-top: 25px;
-  padding-bottom: 25px;
-  color: $footer-font-color;
-
-  a {
-    color: $footer-font-color;
-
-    &:hover {
-      color: $footer-font-color;
-      text-decoration: underline;
-    }
-  }
 
   ul {
     list-style-type: none;
@@ -33,35 +28,13 @@ footer {
     }
   }
 
-  .subtext {
-    font-size: 0.8em;
-  }
+}
 
+.breadcrumb {
+  padding-top: 5px;
 }
 
 img {
   height: 250px;
   width:  auto;
-}
-
-.jumbotron {
-  background-color: white;
-  padding-bottom: 100px;
-}
-
-.navbar {
-  margin-bottom: 0px;
-  vertical-align: bottom;
-}
-
-.main-page {
-  min-height: 80px;
-  .navbar-brand {
-    padding-top: 30px;
-    font-size: 32px;
-  }
-  .navbar-nav {
-    padding-top: 20px;
-  }
-
 }

@@ -9,7 +9,7 @@ RSpec.describe 'contact_messages/show', type: :view do
   let(:breadcrumb) { view.content_for(:breadcrumb)}
 
   it 'has a breadcrumb static reference to the view page' do
-    expect(breadcrumb).to have_selector('.breadcrumb li.active', text: 'Show message')
+    expect(breadcrumb).to have_selector('.breadcrumb li.is-active a', text: 'Show message')
   end
 
   it 'has a breadcrumb link back to the contact page' do

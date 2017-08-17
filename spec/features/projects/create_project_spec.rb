@@ -25,7 +25,7 @@ RSpec.feature 'Create project', type: :feature, js: true do
     def fill_in_form(project)
       within('form') do
         fill_in 'Name', with: project.name
-        click_button 'add-project'
+        click_button 'Create Project'
       end
     end
 

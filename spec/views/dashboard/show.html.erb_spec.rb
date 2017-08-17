@@ -18,7 +18,7 @@ RSpec.describe "dashboards/show.html.erb", type: :view do
     end
 
     it 'has a static reference to the index page' do
-      expect(breadcrumb).to have_selector('.breadcrumb li.active', text: 'Dashboard')
+      expect(breadcrumb).to have_selector('.breadcrumb li.is-active a', text: 'Dashboard')
     end
 
     it 'has a create project button' do

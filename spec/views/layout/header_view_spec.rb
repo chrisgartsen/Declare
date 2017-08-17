@@ -8,20 +8,16 @@ RSpec.describe 'layouts/_header', type: :view do
       render
     end
 
-    it 'has a header element' do
-      expect(rendered).to have_selector('header')
-    end
-
     it 'has a navbar' do
-      expect(rendered).to have_selector('.navbar')
+      expect(rendered).to have_selector('nav.navbar')
     end
 
     it 'has a navbar header' do
-      expect(rendered).to have_selector('.navbar-header')
+      expect(rendered).to have_selector('.navbar-brand')
     end
 
     it 'has a list of links' do
-      expect(rendered).to have_selector('ul.navbar-nav')
+      expect(rendered).to have_selector('.navbar-menu')
     end
 
   end
@@ -34,7 +30,7 @@ RSpec.describe 'layouts/_header', type: :view do
     end
 
     it 'has a login button' do
-      expect(rendered).to have_selector('a', text: "Log in")
+      expect(rendered).to have_selector('a', text: "Sign in")
     end
 
     it 'does not have a logout button' do
@@ -58,7 +54,7 @@ RSpec.describe 'layouts/_header', type: :view do
     end
 
     it 'does not have a view all contact messages link' do
-      expect(rendered).not_to have_link('Contact messages', href: contact_messages_path)
+      expect(rendered).not_to have_link('Contact Messages', href: contact_messages_path)
     end
 
   end
@@ -76,11 +72,11 @@ RSpec.describe 'layouts/_header', type: :view do
     end
 
     it 'has a logout button' do
-      expect(rendered).to have_selector('a', text: "Log out")
+      expect(rendered).to have_selector('a', text: "Sign out")
     end
 
     it 'does not have a login button' do
-      expect(rendered).not_to have_selector('a', text: "Log in")
+      expect(rendered).not_to have_selector('a', text: "Sign in")
     end
 
     it 'does not have a view all users link' do
@@ -104,7 +100,7 @@ RSpec.describe 'layouts/_header', type: :view do
     end
 
     it 'does not have a view all contact messages link' do
-      expect(rendered).not_to have_link('Contact messages', href: contact_messages_path)
+      expect(rendered).not_to have_link('Contact Messages', href: contact_messages_path)
     end
 
   end
@@ -122,7 +118,7 @@ RSpec.describe 'layouts/_header', type: :view do
     end
 
     it 'has a view all contact messages link' do
-      expect(rendered).to have_link('Contact messages', href: contact_messages_path)
+      expect(rendered).to have_link('Contact Messages', href: contact_messages_path)
     end
 
     it 'has a view all currencies link' do
