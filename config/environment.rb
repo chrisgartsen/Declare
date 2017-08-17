@@ -5,4 +5,4 @@ require_relative 'application'
 Rails.application.initialize!
 
 # Set bootstrap formbuilder as default
-ActionView::Base.default_form_builder = BootstrapFormbuilder
+ActionView::Base.default_form_builder = BulmaFormbuilder
