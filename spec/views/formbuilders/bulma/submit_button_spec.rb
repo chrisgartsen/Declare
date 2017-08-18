@@ -8,8 +8,6 @@ RSpec.describe BulmaFormbuilder do
 
     it 'has a button' do
 
-      expect(builder.submit()).to have_selector("input[type='submit']")
-
     end
 
   end
