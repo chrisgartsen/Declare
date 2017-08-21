@@ -18,7 +18,7 @@ RSpec.feature 'View list of payment types', type: :feature, js: true do
     end
 
     def check_page(payment_type)
-      expect(page.find('.pageheader')).to have_content('Payment types')
+      expect(page.find('.pageheader')).to have_content('Payment Types')
       expect(page).to have_content(payment_type.name)
     end
 

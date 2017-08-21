@@ -1,5 +1,5 @@
 <% content_for(:breadcrumb) do %>
-  <%= breadcrumb('Payment types' =>'#') %>
+  <%= breadcrumb('Payment Types' =>'#') %>
 <% end %>
 
 <%= content_for(:sidemenu) do %>
@@ -8,8 +8,8 @@
     <p class="menu-label">Config</p>
     <ul class="menu-list">
       <li><%= link_to 'Currencies', currencies_path %></li>
-      <li><%= link_to 'Expense types', expense_types_path %></li>
-      <li><a class='is-active'>Payment types</a></li>
+      <li><%= link_to 'Expense Types', expense_types_path %></li>
+      <li><a class='is-active'>Payment Types</a></li>
     </ul>
   </aside>
 
@@ -17,7 +17,7 @@
 
 <div>
 
-  <%= pageheader('Payment types') %>
+  <%= pageheader('Payment Types') %>
 
   <%= table(['Name','Created at']) do %>
     <%= render @payment_types %>

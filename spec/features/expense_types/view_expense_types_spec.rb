@@ -18,7 +18,7 @@ RSpec.feature 'View list of expense types', type: :feature, js: true do
     end
 
     def check_page(expense_type)
-      expect(page.find('.pageheader')).to have_content('Expense types')
+      expect(page.find('.pageheader')).to have_content('Expense Types')
       expect(page).to have_content(expense_type.name)
     end
 

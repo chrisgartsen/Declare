@@ -10,11 +10,11 @@ RSpec.describe 'payment_types/index', type: :view do
     end
 
     it 'has a page header' do
-      expect(rendered).to have_selector('.pageheader', text: 'Payment types')
+      expect(rendered).to have_selector('.pageheader', text: 'Payment Types')
     end
 
     it 'has a static reference to the index page' do
-      expect(breadcrumb).to have_selector('.breadcrumb li.is-active a', text: 'Payment types')
+      expect(breadcrumb).to have_selector('.breadcrumb li.is-active a', text: 'Payment Types')
     end
 
   end
