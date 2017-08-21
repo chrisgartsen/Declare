@@ -1,5 +1,13 @@
 $(document).on('turbolinks:load', function() {
 
+  // Toggle show menu via navbar burger
+
+  $(".navbar-burger").click(function(){
+    $(this).toggleClass('is-active');
+    $("#" + $(this).data("target")).toggleClass('is-active');
+  });
+
+
   $('#log-in').click(function(event){
 
    //event.preventDefault();
@@ -16,3 +24,5 @@ $(document).on('turbolinks:load', function() {
   });
 
 });
+
+
