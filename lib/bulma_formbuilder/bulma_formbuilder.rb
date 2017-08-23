@@ -1,7 +1,10 @@
 class BulmaFormbuilder < ActionView::Helpers::FormBuilder
 
-  def submit(method, options = {})
-    super(method, options)
+  DEFAULT_SUBMIT_CAPTION = 'Submit'
+
+
+  def submit_button_horizontal(caption = DEFAULT_SUBMIT_CAPTION, options = {})
+    submit(caption, id: options[:id], class: 'button is-primary')
   end
 
   def text_field_horizontal(field_name)
