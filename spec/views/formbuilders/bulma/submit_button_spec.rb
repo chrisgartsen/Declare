@@ -48,6 +48,11 @@ RSpec.describe BulmaFormbuilder do
       expect(output).to have_selector('div.field.is-horizontal div.field-label')
     end
 
+    it 'has an optional back button' do
+      output = builder.submit_button_horizontal(back_url: 'url-path')
+      expect(output).to have_link('Back', href: 'url-path')
+    end
+
   end
 
 end

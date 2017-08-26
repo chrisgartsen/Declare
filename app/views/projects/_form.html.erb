@@ -1,34 +1,8 @@
 <%= form_for project, html: { class: 'form-horizontal' } do |f| %>
-  <% if project.errors.any? %>
-    <article class="message is-danger">
-      <div class="message-header">
-        <p><strong>A problem has occurred while saving this project.</strong></p>
-      </div>
-      <div class="message-body">
-        <strong><%= pluralize(project.errors.count, 'error') %> occurred</strong>
-        <ul>
-          <% project.errors.full_messages.each do |message| %>
-            <li><%= message %></li>
-          <% end %>
-        </ul>
-      </div>
-    </article>
-
-  <% end %>
 
   <%= f.text_field_horizontal(:name) %>
-
-  <div class="field is-horizontal">
-    <div class="field-label is-normal"><!-- Left empty for spacing --></div>
-    <div class="field-body">
-      <div class="control">
-        <%= f.submit(id: 'add-button', class: 'button is-primary') %>
-        <%= link_to('Back', projects_path, id: 'add-button', class: 'button') %>
-      </div>
-    </div>
-  </div>
-
-  <%= f.submit_button_horizontal(caption: 'Create Project', id: 'add-button') %>
+  <%= f.submit_button_horizontal(caption: f.object.new_record? ? "Create Project" : "Update Project",
+                                      id: 'add-button',
+                                back_url: projects_path) %>
 
 <% end %>
-
