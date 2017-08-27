@@ -8,12 +8,6 @@ module TextField
 
   private
 
-    def render_label(field_name)
-      content_tag(:div, class: 'field-label is-normal') do
-        label(field_name, class: 'label')
-      end
-    end
-
     def render_body(field_name)
       content_tag(:div, class: 'field-body') do
         content_tag(:div, class: 'field') do
@@ -23,7 +17,7 @@ module TextField
     end
 
     def render_text_control(field_name)
-      if @object.errors.any?
+      if @object.errors[field_name].any?
         render_text_field_with_error(field_name)
       else
         render_text_field(field_name)
@@ -39,12 +33,6 @@ module TextField
     def render_text_field_with_error(field_name)
       content_tag(:div, class: 'control has-icons-right') do
         text_field(field_name, class: 'input is-danger') + render_error_icon
-      end
-    end
-
-    def render_error_message(field_name)
-      content_tag(:p, class: 'help is-danger') do
-        @object.errors.full_messages_for(field_name).first if @object.errors.any?
       end
     end
 
