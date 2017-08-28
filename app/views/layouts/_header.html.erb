@@ -2,9 +2,16 @@
 
   <div class="navbar-brand">
     <%= link_to application_name, root_path, class: 'navbar-item' %>
+
+    <div class="navbar-burger" data-target="nav-menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
   </div>
 
-  <div class="navbar-menu">
+  <div class="navbar-menu" id="nav-menu">
 
     <div class="navbar-start">
 
@@ -17,8 +24,8 @@
           <a class="navbar-link  is-active" id = 'config' href="#">Config</a>
           <div class="navbar-dropdown ">
             <%= link_to 'Currencies',    currencies_path,    id: 'list-currencies',    class: 'navbar-item' %>
-            <%= link_to 'Expense types', expense_types_path, id: 'list-expense-types', class: 'navbar-item' %>
-            <%= link_to 'Payment types', payment_types_path, id: 'list-payment-types', class: 'navbar-item' %>
+            <%= link_to 'Expense Types', expense_types_path, id: 'list-expense-types', class: 'navbar-item' %>
+            <%= link_to 'Payment Types', payment_types_path, id: 'list-payment-types', class: 'navbar-item' %>
           </div>
         </div>
       <% end %>
@@ -68,7 +75,6 @@
   </div>
 
 </nav>
-
 
 <div class='modal' id='login-modal'>
   <div class='modal-background'></div>

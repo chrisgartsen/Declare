@@ -9,74 +9,25 @@
 
     <p>Send us a message.</p><br/>
 
-      <%= form_for @contact_message do |f| %>
+    <%= form_for @contact_message do |f| %>
 
-
-        <% if @contact_message.errors.any? %>
-          <article class="message is-danger">
-            <div class="message-header">
-              <p><strong>A problem has occurred while sending this message.</strong></p>
-            </div>
-            <div class="message-body">
-              <strong><%= pluralize(@contact_message.errors.count, 'error') %> occurred</strong>
-              <ul>
-                <% @contact_message.errors.full_messages.each do |message| %>
-                  <li><%= message %></li>
-                <% end %>
-              </ul>
-            </div>
-          </article>
-        <% end %>
-
-        <div class="field is-horizontal">
-          <div class="field-label is-normal">
-            <%= f.label(:email, class: 'label') %>
-          </div>
-          <div class="field-body">
-            <div class="field">
-              <p class="control">
-                 <%= f.text_field(:email, class: 'input') %>
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <div class="field is-horizontal">
-          <div class="field-label is-normal">
-            <%= f.label(:message, class: 'label') %>
-          </div>
-          <div class="field-body">
-            <div class="field">
-              <p class="control">
-                 <%= f.text_area(:message, class: 'textarea') %>
-              </p>
-            </div>
-          </div>
-        </div>
-
+      <%= f.text_field_horizontal(:email) %>
 
         <div class="field is-horizontal">
           <div class="field-label"><!-- Left empty for spacing --></div>
           <div class="field-body">
             <div class="field">
               <div class="control">
-                <%= recaptcha_tags hl: 'en' %>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="field is-horizontal">
-          <div class="field-label"><!-- Left empty for spacing --></div>
-          <div class="field-body">
-            <div class="field">
-              <div class="control">
-                <%= f.submit('Send message', type: 'submit', class: 'button is-primary') %>
+                <%#= recaptcha_tags hl: 'en' %>
               </div>
             </div>
           </div>
         </div>
 
-      <% end %>
+      <%= f.text_area_horizontal(:message) %>
+      <%= f.submit_button_horizontal(caption: 'Send message') %>
+
+    <% end %>
 
   </div>
 </div>

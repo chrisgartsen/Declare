@@ -10,14 +10,6 @@ RSpec.describe ApplicationHelper, type: :helper do
 
   end
 
-  describe '#application_version' do
-
-    it 'returns the application version' do
-      expect(helper.application_version).to eq('0.2.0')
-    end
-
-  end
-
   describe '#main_page' do
 
     it 'returns true if the request is the main page' do
