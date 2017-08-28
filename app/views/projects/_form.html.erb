@@ -1,8 +1,4 @@
-<%= form_for project, html: { class: 'form-horizontal' } do |f| %>
-
+<%= form_for project do |f| %>
   <%= f.text_field_horizontal(:name) %>
-  <%= f.submit_button_horizontal(caption: f.object.new_record? ? "Create Project" : "Update Project",
-                                      id: 'add-button',
-                                back_url: projects_path) %>
-
+  <%= f.submit_button_horizontal(id: 'add-button', back_url: projects_path) %>
 <% end %>

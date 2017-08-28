@@ -9,8 +9,19 @@ RSpec.describe BulmaFormbuilder do
     it 'has a submit button with default caption and id' do
       output = builder.submit_button_horizontal()
       expect(output).to have_selector("input[type='submit']")
-      expect(output).to have_selector("input[value='Submit']")
       expect(output).to have_selector("input[id='submit-button']")
+    end
+
+    it 'has a default caption for a new object' do
+      output = builder.submit_button_horizontal()
+      expect(output).to have_selector("input[value='Create Project']")
+    end
+
+    it 'has a default caption for a existing object' do
+      project2 = FactoryGirl.create(:project)
+      builder2 = BulmaFormbuilder.new(:project, project2, self, {})
+      output = builder2.submit_button_horizontal()
+      expect(output).to have_selector("input[value='Update Project']")
     end
 
     it 'accepts a custom title' do

@@ -4,7 +4,7 @@ module SubmitButton
   DEFAULT_SUBMIT_BUTTON_ID      = 'submit-button'
 
   def submit_button_horizontal(options = {})
-    caption = options[:caption] || DEFAULT_SUBMIT_BUTTON_CAPTION
+    caption = options[:caption] || create_default_caption
     id = options[:id] || DEFAULT_SUBMIT_BUTTON_ID
     back_url = options[:back_url]
 
@@ -14,6 +14,14 @@ module SubmitButton
   end
 
   private
+
+    def create_default_caption
+      if @object.new_record?
+        'Create ' + @object.class.name
+      else
+        'Update ' + @object.class.name
+      end
+    end
 
     def render_empty_label_div
       content_tag(:div, class: 'field-label') do '' end
