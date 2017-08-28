@@ -67,15 +67,3 @@ RSpec.describe BulmaFormbuilder do
   end
 
 end
-
-
-#  <div class="field is-horizontal">
-#   <div class="field-label"><!-- Left empty for spacing --></div>
-#    <div class="field-body">
-#        <div class="control">
-#          <%= f.submit(type: 'submit', id: 'add-button', class: 'button is-primary') %>
-#          <%= link_to('Back', projects_path, id: 'add-button', class: 'button') %>
-#        </div>
-#      </div>
-#    </div>
-#  </div>
