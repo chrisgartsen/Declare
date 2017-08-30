@@ -27,6 +27,11 @@ RSpec.describe BulmaFormbuilder do
         expect(output).to have_selector('div.field-body div.field div.control input')
       end
 
+      it 'can be a password field' do
+        output = builder.text_field_horizontal(:name, type: :password)
+        expect(output).to have_selector('input[type="password"]')
+      end
+
     end
 
     describe '#label' do
