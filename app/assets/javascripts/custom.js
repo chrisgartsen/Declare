@@ -9,9 +9,8 @@ $(document).on('turbolinks:load', function () {
 
 
   $('#log-in').click(function (event) {
-    event.preventDefault();
-    $('#login-modal').addClass('is-active');
-
+    //event.preventDefault();
+    //$('#login-modal').addClass('is-active');
   });
 
   $('.modal-background').click(function () {
