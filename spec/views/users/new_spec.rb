@@ -71,24 +71,12 @@ RSpec.describe 'users/new', type: :view do
       render
     end
 
-    it 'has an error panel' do
-      expect(rendered).to have_selector('article.message.is-danger')
-    end
-
-    it 'shows an error header' do
-      expect(rendered).to have_selector('.message-header strong', text: 'A problem has occurred while signing up.')
-    end
-
-    it 'shows an error subheader' do
-      expect(rendered).to have_selector('.message-body strong', text: '1 error occurred')
+    it 'shows an error message' do
+      expect(rendered).to have_selector('input.is-danger')
     end
 
     it 'list the error' do
-      expect(rendered).to have_selector('li', text: "Name can't be blank")
-    end
-
-    it 'lists the correct number of errors' do
-      expect(rendered).to have_selector('li', count: 1)
+      expect(rendered).to have_selector('p.help.is-danger', text: "Name can't be blank")
     end
 
   end

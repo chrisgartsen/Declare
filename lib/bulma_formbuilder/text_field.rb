@@ -1,38 +1,42 @@
 module TextField
 
-  def text_field_horizontal(field_name)
+  def text_field_horizontal(field_name, options = {})
     content_tag(:div, class: 'field is-horizontal') do
-      render_label(field_name) + render_body(field_name)
+      render_label(field_name) + render_body(field_name, options)
     end
   end
 
   private
 
-    def render_body(field_name)
+    def render_body(field_name, options)
       content_tag(:div, class: 'field-body') do
         content_tag(:div, class: 'field') do
-          render_text_control(field_name) + render_error_message(field_name)
+          render_text_control(field_name, options) + render_error_message(field_name)
         end
       end
     end
 
-    def render_text_control(field_name)
+    def render_text_control(field_name, options)
       if @object.errors[field_name].any?
-        render_text_field_with_error(field_name)
+        render_text_field_with_error(field_name, options)
       else
-        render_text_field(field_name)
+        render_text_field(field_name, options)
       end
     end
 
-    def render_text_field(field_name)
+    def render_text_field(field_name, options)
+      type = options[:type]
+
       content_tag(:div, class: 'control') do
-        text_field(field_name, class: 'input')
+        type && type.to_s == 'password' ? password_field(field_name, class: 'input') : text_field(field_name, class: 'input')
       end
     end
 
-    def render_text_field_with_error(field_name)
+    def render_text_field_with_error(field_name, options)
+      type = options[:type]
+
       content_tag(:div, class: 'control has-icons-right') do
-        text_field(field_name, class: 'input is-danger') + render_error_icon
+        (type && type.to_s == 'password' ? password_field(field_name, class: 'input is-danger') : text_field(field_name, class: 'input is-danger')) + render_error_icon
       end
     end
 
