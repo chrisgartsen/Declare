@@ -6,7 +6,8 @@ RSpec.describe DashboardsController do
 
       it 'redirects to the login page' do
         clear_authentication
-        get :show
+        project = FactoryGirl.create(:project)
+        get :show, params: {id: project.id}
         expect(response).to redirect_to(login_path)
       end
 
@@ -14,25 +15,33 @@ RSpec.describe DashboardsController do
 
     context 'when logged in' do
 
-      it 'returns the users dashboard object' do
-        user = FactoryGirl.create(:user)
-        set_authentication(user)
-        get :show
-        expect(assigns(:dashboard).user_name).to eq(user.name)
-      end
-
-      it 'returns the users projects' do
-        user = FactoryGirl.create(:user)
-        project = FactoryGirl.create(:project, user: user)
-        set_authentication(user)
-        get :show
-        expect(assigns(:dashboard).projects).to match_array([project])
+      it 'returns the requested project' do
+        project = FactoryGirl.create(:project)
+        set_authentication(project.user)
+        get :show, params: { id: project.id}
+        expect(assigns(:project)).to eq(project)
       end
 
       it 'renders the show page' do
-        set_authentication(FactoryGirl.create(:user))
-        get :show
+        project = FactoryGirl.create(:project)
+        set_authentication(project.user)
+        get :show, params: { id: project.id}
         expect(response).to render_template(:show)
+      end
+
+      it 'returns an error when the project does not exist' do
+       set_authentication(FactoryGirl.create(:user))
+        expect {
+          get :show, params: {id: 9999 }
+          }.to raise_error ActiveRecord::RecordNotFound
+      end
+
+      it 'returns an error when user does not own the project' do
+        project = FactoryGirl.create(:project)
+        set_authentication(FactoryGirl.create(:additional_user))
+        expect {
+          get :show, params: {id: project.id }
+          }.to raise_error ActiveRecord::RecordNotFound
       end
 
     end
