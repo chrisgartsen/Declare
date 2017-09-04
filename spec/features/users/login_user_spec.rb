@@ -19,7 +19,7 @@ RSpec.feature 'Login and logout user', type: :feature, js: true do
       def navigate_to_page
         visit root_path
         click_link 'log-in'
-        expect(page.find('.pageheader')).to have_content('Log in')
+        expect(page.find('.pageheader')).to have_content('Sign in')
       end
 
       def login(user)
@@ -31,7 +31,7 @@ RSpec.feature 'Login and logout user', type: :feature, js: true do
       end
 
       def check_login(user)
-        expect(page.find('.navbar-right')).to have_content(user.name)
+        expect(page.find('.navbar-end')).to have_content(user.name)
       end
 
       def logout
@@ -39,8 +39,8 @@ RSpec.feature 'Login and logout user', type: :feature, js: true do
       end
 
       def check_logout(user)
-        expect(page.find('.navbar-right')).not_to have_content(user.name)
-        expect(page.find('.pageheader')).to have_content('Log in')
+        expect(page.find('.navbar-end')).not_to have_content(user.name)
+        expect(page.find('.pageheader')).to have_content('Sign in')
       end
 
   end

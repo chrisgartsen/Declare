@@ -1,9 +1,14 @@
 <%= yield(:breadcrumb) %>
 
-<main class='container-fluid'>
-  <div class='row'>
-    <div class='col-md-6 col-md-offset-3'>
+<main>
+  <div class='columns'>
+    <div class='column is-1 is-offset-1'>
+      <%= yield(:sidemenu) %>
+    </div>
+    <div class='column is-6 is-offset-1'>
       <%= yield %>
     </div>
   </div>
 </main>
+
+

@@ -11,7 +11,7 @@ RSpec.describe "accounts/show", type: :view do
   let(:breadcrumb) {view.content_for(:breadcrumb) }
 
   it 'has a static reference to the account page' do
-    expect(breadcrumb).to have_selector('.breadcrumb li.active', text: 'Account')
+    expect(breadcrumb).to have_selector('.breadcrumb li.is-active a', text: 'Account')
   end
 
   it 'has a pageheader' do
@@ -19,11 +19,11 @@ RSpec.describe "accounts/show", type: :view do
   end
 
   it 'shows the user name' do
-    expect(rendered).to have_selector('.form-control-static', text: @user.name)
+    expect(rendered).to have_selector('td', text: @user.name)
   end
 
   it 'shows the user email' do
-    expect(rendered).to have_selector('.form-control-static', text: @user.email)
+    expect(rendered).to have_selector('td', text: @user.email)
   end
 
 end

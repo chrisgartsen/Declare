@@ -2,17 +2,12 @@
   <%= breadcrumb('Users' =>'#') %>
 <% end %>
 
-<div class='container'>
+<div>
 
-  <div class='row'>
-    <div class='col-md-10 col-md-offset-1'>
+  <%= pageheader('Users') %>
 
-      <%= pageheader('Users') %>
+  <%= table(['Name', 'Email', 'Admin', 'Created at', 'Updated at']) do %>
+    <%= render @users %>
+  <% end %>
 
-      <%= table(['Name', 'Email', 'Admin', 'Created at', 'Updated at']) do %>
-        <%= render @users %>
-      <% end %>
-
-    </div>
-  </div>
 </div>

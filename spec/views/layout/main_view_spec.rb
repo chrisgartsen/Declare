@@ -12,8 +12,8 @@ RSpec.describe 'layouts/_main' do
       expect(rendered).to have_selector('main')
     end
 
-    it 'wrapped in a fluid container' do
-      expect(rendered).to have_selector('main.container-fluid')
+    it 'wrapped in a columns container' do
+      expect(rendered).to have_selector('div.columns')
     end
 
   end

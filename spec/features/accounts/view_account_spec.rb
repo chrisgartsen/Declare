@@ -8,7 +8,7 @@ RSpec.feature 'Manage account', type: :feature, js: true do
       user = FactoryGirl.create(:user)
 
       visit root_path
-      click_link 'Log in'
+      click_link 'log-in'
 
       within('form') do
         fill_in 'email', with: user.email

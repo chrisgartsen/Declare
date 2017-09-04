@@ -2,19 +2,13 @@
   <%= breadcrumb('Projects' => projects_path, 'Add Project' => '#') %>
 <% end %>
 
-<div class='container'>
+<div class='columns'>
 
-  <div class='row'>
-    <div class='col-md-6 col-md-offset-2'>
+  <div class='column is-6 is-offset-one-quarter'>
 
-      <%= pageheader('Add project') %>
+    <%= pageheader('Add project') %>
 
-      <%= form_for @project, html: { class: 'form-horizontal' } do |f| %>
-        <%= f.error_message_group %>
-        <%= f.text_field_group(:name) %>
-        <%= f.submit_button_group('Add project', id: 'add-project') %>
-      <% end %>
+    <%= render partial: 'form', locals: { project: @project } %>
 
-    </div>
   </div>
 </div>

@@ -8,7 +8,7 @@ RSpec.describe "sessions/new.html.erb", type: :view do
 
     it 'has a static reference to the login page' do
       render
-      expect(breadcrumb).to have_selector('.breadcrumb li.active', text: 'Log in')
+      expect(breadcrumb).to have_selector('.breadcrumb li.is-active a', text: 'Sign in')
     end
 
   end
@@ -17,7 +17,7 @@ RSpec.describe "sessions/new.html.erb", type: :view do
 
     it 'has a pageheader' do
       render
-      expect(rendered).to have_selector('.pageheader', text: 'Log in')
+      expect(rendered).to have_selector('.pageheader', text: 'Sign in')
     end
 
     it 'has a signup link' do
@@ -50,7 +50,7 @@ RSpec.describe "sessions/new.html.erb", type: :view do
     end
 
     it 'does not show an error panel' do
-      expect(rendered).not_to have_selector('div.alert.alert-danger')
+      expect(rendered).not_to have_selector('article.message.is-danger')
     end
 
   end
@@ -63,19 +63,17 @@ RSpec.describe "sessions/new.html.erb", type: :view do
     end
 
     it 'has an error panel' do
-      expect(rendered).to have_selector('div.alert.alert-danger')
+      expect(rendered).to have_selector('article.message.is-danger')
     end
 
     it 'shows an error header' do
-      expect(rendered).to have_selector('strong', text: 'A problem has occurred while loging in.')
+      expect(rendered).to have_selector('strong', text: 'A problem has occurred while signing in.')
     end
 
     it 'shows an error subheader' do
-      expect(rendered).to have_selector('p', text: 'Login failed')
+      expect(rendered).to have_selector('div.message-body', text: 'Login failed')
     end
 
   end
-
-
 
 end

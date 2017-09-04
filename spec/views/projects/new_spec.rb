@@ -14,7 +14,7 @@ RSpec.describe 'projects/new', type: :view do
     end
 
     it 'has a static reference to the create page' do
-      expect(breadcrumb).to have_selector('.breadcrumb li.active', text: 'Add Project' )
+      expect(breadcrumb).to have_selector('.breadcrumb li.is-active a', text: 'Add Project' )
     end
 
     it 'has a page header' do
@@ -32,6 +32,10 @@ RSpec.describe 'projects/new', type: :view do
 
     it 'has a form' do
       expect(rendered).to have_selector('form')
+    end
+
+    it 'as a back button' do
+      expect(rendered).to have_link('Back', href: projects_path)
     end
 
     it 'has a submit button' do
@@ -53,28 +57,14 @@ RSpec.describe 'projects/new', type: :view do
       render
     end
 
-    it 'has an error panel' do
-      expect(rendered).to have_selector('div.alert.alert-danger')
-    end
-
-    it 'shows an error header' do
-      expect(rendered).to have_selector('strong', text: 'A problem has occurred while submitting your data.')
-    end
-
-    it 'shows an error subheader' do
-      expect(rendered).to have_selector('p', text: '1 error prohibited this Project from being saved:')
+    it 'shows an error message' do
+      expect(rendered).to have_selector('input.is-danger')
     end
 
     it 'list the error' do
-      expect(rendered).to have_selector('li', text: "Name can't be blank")
-    end
-
-    it 'lists the correct number of errors' do
-      expect(rendered).to have_selector('li', count: 1)
+      expect(rendered).to have_selector('p.help.is-danger', text: "Name can't be blank")
     end
 
   end
-
-
 
 end

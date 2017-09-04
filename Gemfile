@@ -10,7 +10,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'bcrypt', '~> 3.1.7'
 
 gem 'sass-rails', '~> 5.0'
-gem 'bootstrap-sass'
+gem 'bulma-rails'
 gem 'font-awesome-sass'
 gem 'uglifier', '>= 1.3.0'
 gem 'jquery-rails'
@@ -34,7 +34,7 @@ end
 group :development do
   gem 'web-console'
   gem 'better_errors'
-  gem 'bullet'
+  #gem 'bullet'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

@@ -1,0 +1,4 @@
+<%= form_for project do |f| %>
+  <%= f.text_field_horizontal(:name) %>
+  <%= f.submit_button_horizontal(id: 'add-button', back_url: projects_path) %>
+<% end %>

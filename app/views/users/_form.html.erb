@@ -1,0 +1,7 @@
+<%= form_for @user do |f| %>
+  <%= f.text_field_horizontal(:name) %>
+  <%= f.text_field_horizontal(:email) %>
+  <%= f.text_field_horizontal(:password, type: :password) %>
+  <%= f.text_field_horizontal(:password_confirmation, type: :password) %>
+  <%= f.submit_button_horizontal(id: 'sign-up', caption: 'Sign up') %>
+<% end %>

@@ -2,21 +2,26 @@
   <%= breadcrumb('Currencies' =>'#') %>
 <% end %>
 
-<div class='container'>
+<%= content_for(:sidemenu) do %>
 
-  <div class='row'>
-    <div class='col-md-10 col-md-offset-1'>
+  <aside class="menu">
+    <p class="menu-label">Config</p>
+    <ul class="menu-list">
+      <li><a class="is-active">Currencies</a></li>
+      <li><%= link_to 'Expense Types', expense_types_path %></li>
+      <li><%= link_to 'Payment Types', payment_types_path %></li>
+    </ul>
+  </aside>
 
-      <%= nav_tab('Currencies' => '#',
-                  'Expense types' => expense_types_path,
-                  'Payment types' => payment_types_path) %>
+<% end %>
 
-      <%= table(['Code', 'Name', 'Created at']) do %>
-        <%= render @currencies %>
-      <% end %>
+<div>
 
-    </div>
-  </div>
+  <%= pageheader('Currencies') %>
+
+  <%= table(['Code', 'Name', 'Created at']) do %>
+    <%= render @currencies %>
+  <% end %>
 
 </div>
 

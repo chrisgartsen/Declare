@@ -10,7 +10,7 @@ RSpec.describe 'contact_messages/new', type: :view do
     end
 
     it 'has a static link to the contact page' do
-      expect(breadcrumb).to have_selector('.breadcrumb li.active', text: 'Contact')
+      expect(breadcrumb).to have_selector('.breadcrumb li.is-active a', text: 'Contact')
     end
 
     it 'has a page header' do
@@ -53,26 +53,13 @@ RSpec.describe 'contact_messages/new', type: :view do
       render
     end
 
-    it 'has an error panel' do
-      expect(rendered).to have_selector('div.alert.alert-danger')
-    end
-
-    it 'shows an error header' do
-      expect(rendered).to have_selector('strong', text: 'A problem has occurred while submitting your data.')
-    end
-
-    it 'shows an error subheader' do
-      expect(rendered).to have_content('1 error prohibited this Contact message from being saved:')
+    it 'shows an error message' do
+      expect(rendered).to have_selector('textarea.is-danger')
     end
 
     it 'list the error' do
-      expect(rendered).to have_selector('li', text: "Message can't be blank")
+      expect(rendered).to have_selector('p.help.is-danger', text: "Message can't be blank")
     end
-
-    it 'lists the correct number of errors' do
-      expect(rendered).to have_selector('li', count: 1)
-    end
-
   end
 
 end

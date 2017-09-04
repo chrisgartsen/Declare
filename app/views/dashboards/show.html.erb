@@ -2,13 +2,24 @@
   <%= breadcrumb('Dashboard' =>'#') %>
 <% end %>
 
-<div class='container'>
+<%= pageheader("Welcome #{@dashboard.user_name}") %>
 
-  <div class='row'>
-    <div class='col-md-6 col-md-offset-2'>
+<br/>
 
-      <h1 class='pageheader'>Welcome <%= @dashboard.user_name %></h1>
+<h4 class="title is-4">Projects</h3>
 
-    </div>
-  </div>
-</div>
+<%= table(['Name', 'Outstanding','Total']) do %>
+  <%= render partial: 'dashboards/project', collection: @dashboard.projects %>
+<% end %>
+
+<%= link_to new_project_path, class: 'button is-default' do %>
+  <span class='icon'><i class="fa fa-plus" aria-hidden="true"></i></span>
+  <span>Add project</span>
+<% end %>
+
+<%= link_to projects_path, class: 'button is-default' do %>
+  <span class='icon'><i class="fa fa-list" aria-hidden="true"></i></span>
+  <span>Manage projects</span>
+<% end %>
+
+

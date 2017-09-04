@@ -1,20 +1,26 @@
 <% content_for(:breadcrumb) do %>
-  <%= breadcrumb('Payment types' =>'#') %>
+  <%= breadcrumb('Payment Types' =>'#') %>
 <% end %>
 
-<div class='container'>
+<%= content_for(:sidemenu) do %>
 
-  <div class='row'>
-    <div class='col-md-10 col-md-offset-1'>
+  <aside class="menu">
+    <p class="menu-label">Config</p>
+    <ul class="menu-list">
+      <li><%= link_to 'Currencies', currencies_path %></li>
+      <li><%= link_to 'Expense Types', expense_types_path %></li>
+      <li><a class='is-active'>Payment Types</a></li>
+    </ul>
+  </aside>
 
-      <%= nav_tab('Currencies' => currencies_path,
-                  'Expense types' => expense_types_path,
-                  'Payment types' => '#') %>
+<% end %>
 
-      <%= table(['Name','Created at']) do %>
-        <%= render @payment_types %>
-      <% end %>
+<div>
 
-    </div>
-  </div>
+  <%= pageheader('Payment Types') %>
+
+  <%= table(['Name','Created at']) do %>
+    <%= render @payment_types %>
+  <% end %>
+
 </div>

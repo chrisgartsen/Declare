@@ -1,8 +1,10 @@
 module BreadcrumbHelper
 
   def breadcrumb(items={})
-    content_tag(:ol, class: 'breadcrumb') do
-      render_items(items)
+    content_tag(:nav, class: 'breadcrumb') do
+      content_tag(:ul) do
+        render_items(items)
+      end
     end
   end
 
@@ -25,8 +27,8 @@ module BreadcrumbHelper
   end
 
   def render_static_item(caption)
-    content_tag(:li, class: 'active') do
-      caption
+    content_tag(:li, class: 'is-active') do
+      link_to(caption, '#')
     end
   end
 
