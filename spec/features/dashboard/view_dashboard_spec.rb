@@ -16,7 +16,7 @@ RSpec.feature 'View the dashboard page', type: :feature, js: true do
     it 'shows the dashboard page as root page' do
       login(@user)
       expect(page).to have_content(@user.name)
-      expect(page.find('.pageheader')).to have_content("Welcome #{@user.name}")
+      expect(page.find('.breadcrumb')).to have_content('Dashboard')
     end
   end
 
