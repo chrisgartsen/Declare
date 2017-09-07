@@ -1,12 +1,23 @@
 <% content_for(:breadcrumb) do %>
-  <%= breadcrumb('Projects' =>'#') %>
+  <%= breadcrumb('Dashboard' =>'#') %>
 <% end %>
 
 <div>
 
-  <%= pageheader('Projects') %>
+  <div class='tabs'>
+    <ul>
+      <li class="is-active"><a>Overview</a></li>
 
-  <%= table(['Name', 'Created at', 'Updated at', '']) do %>
+      <% @projects.each do |project| %>
+        <li><%= link_to project.name, project %></li>
+      <% end %>
+
+    </ul>
+  </div>
+
+  <h4 class="title is-4">Projects</h4>
+
+  <%= table(['Name', 'Outstanding','Total','Created at', 'Updated at', '']) do %>
     <%= render @projects %>
   <% end %>
 

@@ -25,7 +25,7 @@ Rails.application.routes.draw do
 
 
   constraints AuthenticatedRouteConstraint.new do
-    root 'dashboards#index'
+    root 'projects#index'
   end
 
   root 'static_pages#show', page: 'home'

@@ -12,12 +12,8 @@ RSpec.describe 'projects/index', type: :view do
       render
     end
 
-    it 'has a page header' do
-      expect(rendered).to have_selector('.pageheader', text: 'Projects')
-    end
-
     it 'has a static reference to the index page' do
-      expect(breadcrumb).to have_selector('.breadcrumb li.is-active a', text: 'Projects')
+      expect(breadcrumb).to have_selector('.breadcrumb li.is-active a', text: 'Dashboard')
     end
 
     it 'has a Add new project button' do
@@ -26,10 +22,35 @@ RSpec.describe 'projects/index', type: :view do
 
   end
 
-  describe '#table' do
+  describe '#nav tabs' do
 
     before(:each) do
-      assign(:projects, [])
+      user = FactoryGirl.create(:user)
+      session[:user_id] = user.id
+      @first_project = FactoryGirl.create(:first_project, user_id: user.id)
+      @second_project = FactoryGirl.create(:second_project, user_id: user.id)
+      assign(:projects, [@first_project, @second_project])
+      render
+    end
+
+    it 'has a tab section' do
+      expect(rendered).to have_selector('div.tabs')
+    end
+
+    it 'has an active tab element' do
+      expect(rendered).to have_selector('li.is-active a', text: 'Overview')
+    end
+
+  end
+
+  describe '#projects' do
+
+    before(:each) do
+      user = FactoryGirl.create(:user)
+      session[:user_id] = user.id
+      @first_project = FactoryGirl.create(:first_project, user_id: user.id)
+      @second_project = FactoryGirl.create(:second_project, user_id: user.id)
+      assign(:projects, [@first_project, @second_project])
       render
     end
 
@@ -41,17 +62,8 @@ RSpec.describe 'projects/index', type: :view do
       expect(rendered).to have_selector 'th', text: 'Updated at'
     end
 
-  end
-
-  describe '#table content' do
-
-    before(:each) do
-      user = FactoryGirl.create(:user)
-      session[:user_id] = user.id
-      @first_project = FactoryGirl.create(:first_project, user_id: user.id)
-      @second_project = FactoryGirl.create(:second_project, user_id: user.id)
-    assign(:projects, [@first_project, @second_project])
-      render
+    it 'has a subheader' do
+      expect(rendered).to have_selector('h4.title.is-4', text: 'Projects')
     end
 
     it 'shows the correct number of projects' do
@@ -61,6 +73,16 @@ RSpec.describe 'projects/index', type: :view do
     it 'shows the name' do
       expect(rendered).to have_selector('tbody tr:first-child td#project-name', text: @first_project.name)
       expect(rendered).to have_selector('tbody tr:last-child td#project-name', text: @second_project.name)
+    end
+
+    it 'shows the outstanding amounts' do
+      expect(rendered).to have_selector('tbody tr:first-child td#project-outstanding-amount', text: @first_project.outstanding_amount)
+      expect(rendered).to have_selector('tbody tr:last-child td#project-outstanding-amount',  text: @second_project.outstanding_amount)
+    end
+
+    it 'shows the total amounts' do
+      expect(rendered).to have_selector('tbody tr:first-child td#project-total-amount', text: @first_project.total_amount)
+      expect(rendered).to have_selector('tbody tr:last-child td#project-total-amount',  text: @second_project.total_amount)
     end
 
     it 'shows the created at' do
