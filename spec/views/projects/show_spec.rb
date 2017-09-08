@@ -5,7 +5,7 @@ RSpec.describe 'projects/show', type: :view do
     let(:breadcrumb) { view.content_for(:breadcrumb)}
 
     before(:each) do
-      @project = FactoryGirl.create(:project)
+      @project = FactoryGirl.build_stubbed(:project, name: 'My Project')
       assign(:project, @project)
       render
     end
@@ -19,13 +19,12 @@ RSpec.describe 'projects/show', type: :view do
       expect(breadcrumb).to have_link('Dashboard', href: root_path)
     end
 
-
   end
 
   describe '#project' do
 
     before(:each) do
-      @project = FactoryGirl.create(:project)
+      @project = FactoryGirl.build_stubbed(:project, name: 'My Project', created_at: Time.now, updated_at: Time.new)
       assign(:project, @project)
       render
     end

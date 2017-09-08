@@ -26,7 +26,7 @@ RSpec.describe 'projects/edit', type: :view do
   describe '#form' do
 
     before(:each) do
-      @project = FactoryGirl.build(:project)
+      @project = FactoryGirl.build_stubbed(:project, name: 'My Project')
       assign(:project, @project)
       render
     end

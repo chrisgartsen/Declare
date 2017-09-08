@@ -25,10 +25,8 @@ RSpec.describe 'projects/index', type: :view do
   describe '#nav tabs' do
 
     before(:each) do
-      user = FactoryGirl.create(:user)
-      session[:user_id] = user.id
-      @first_project = FactoryGirl.create(:first_project, user_id: user.id)
-      @second_project = FactoryGirl.create(:second_project, user_id: user.id)
+      @first_project  = FactoryGirl.build_stubbed(:project, name: 'First Project')
+      @second_project = FactoryGirl.build_stubbed(:project, name: 'Second Project')
       assign(:projects, [@first_project, @second_project])
       render
     end
@@ -53,10 +51,8 @@ RSpec.describe 'projects/index', type: :view do
   describe '#projects' do
 
     before(:each) do
-      user = FactoryGirl.create(:user)
-      session[:user_id] = user.id
-      @first_project = FactoryGirl.create(:first_project, user_id: user.id)
-      @second_project = FactoryGirl.create(:second_project, user_id: user.id)
+      @first_project  = FactoryGirl.build_stubbed(:project, name: 'First Project')
+      @second_project = FactoryGirl.build_stubbed(:project, name: 'Second Project')
       assign(:projects, [@first_project, @second_project])
       render
     end
@@ -65,8 +61,8 @@ RSpec.describe 'projects/index', type: :view do
 
     it 'shows column headers' do
       expect(rendered).to have_selector 'th', text: 'Name'
-      expect(rendered).to have_selector 'th', text: 'Created at'
-      expect(rendered).to have_selector 'th', text: 'Updated at'
+      expect(rendered).to have_selector 'th', text: 'Outstanding amount'
+      expect(rendered).to have_selector 'th', text: 'Total amount'
     end
 
     it 'has a subheader' do
@@ -90,16 +86,6 @@ RSpec.describe 'projects/index', type: :view do
     it 'shows the total amounts' do
       expect(rendered).to have_selector('tbody tr:first-child td#project-total-amount', text: @first_project.total_amount)
       expect(rendered).to have_selector('tbody tr:last-child td#project-total-amount',  text: @second_project.total_amount)
-    end
-
-    it 'shows the created at' do
-      expect(rendered).to have_selector('tbody tr:first-child td#project-created-at', text: @first_project.created_at)
-      expect(rendered).to have_selector('tbody tr:last-child td#project-created-at', text: @second_project.created_at)
-    end
-
-    it 'shows the updated at' do
-      expect(rendered).to have_selector('tbody tr:first-child td#project-updated-at', text: @first_project.updated_at)
-      expect(rendered).to have_selector('tbody tr:last-child td#project-updated-at', text: @second_project.updated_at)
     end
 
     it 'has a show button' do
