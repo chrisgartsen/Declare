@@ -1,5 +1,5 @@
 <% content_for(:breadcrumb) do %>
-  <%= breadcrumb('Projects' => projects_path, 'Show project' => '#') %>
+  <%= breadcrumb('Dashboard' => root_path, @project.name => '#') %>
 <% end %>
 
 <div class='columns'>

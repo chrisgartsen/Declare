@@ -41,6 +41,13 @@ RSpec.describe 'projects/index', type: :view do
       expect(rendered).to have_selector('li.is-active a', text: 'Overview')
     end
 
+    it 'shows all projects as tab elements' do
+      expect(rendered).to have_selector('li a', text: @first_project.name)
+      expect(rendered).to have_selector('li a', text: @second_project.name)
+      expect(rendered).to have_link(@first_project.name, href: project_path(@first_project.id))
+      expect(rendered).to have_link(@second_project.name, href: project_path(@second_project.id))
+    end
+
   end
 
   describe '#projects' do
